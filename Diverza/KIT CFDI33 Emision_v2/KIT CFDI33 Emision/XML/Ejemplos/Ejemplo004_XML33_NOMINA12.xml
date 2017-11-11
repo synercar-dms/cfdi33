@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:catCFDI="http://www.sat.gob.mx/sitio_internet/cfd/catalogos"
+    xmlns:cfdi="http://www.sat.gob.mx/cfd/3"
+    xmlns:tdCFDI="http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:nomina12="http://www.sat.gob.mx/nomina12"
+    xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd http://www.sat.gob.mx/nomina12 http://www.sat.gob.mx/sitio_internet/cfd/nomina/nomina12.xsd" 
+    Version="3.3" Serie="A" Folio="1000" Fecha="2017-05-15T18:13:51" Sello="sin sello" 
+    FormaPago="99"
+    NoCertificado="20001000000200001428" 
+    Certificado="sin cert" 
+    
+    SubTotal="9533.69" Moneda="MXN" TipoCambio="1" Total="5525.82" Descuento="4007.87"
+    TipoDeComprobante="N" MetodoPago="PUE" LugarExpedicion="45079">
+    <cfdi:Emisor Rfc="AAA010101AAA" Nombre="Empresa AAA" RegimenFiscal="601"/>
+    <cfdi:Receptor Rfc="LOGL690103H87" Nombre="LOPEZ GALVAN LUIS ROGELIO"
+        UsoCFDI="G01"/>
+    <cfdi:Conceptos>
+        <cfdi:Concepto ClaveProdServ="84111505"
+            Cantidad="1" ClaveUnidad="ACT"
+            Descripcion="Pago de nómina" ValorUnitario="9533.69" Importe="9533.69" Descuento="4007.87">
+        </cfdi:Concepto>
+    </cfdi:Conceptos>
+    <cfdi:Complemento>
+        <nomina12:Nomina Version="1.2" TipoNomina="O" FechaPago="2017-01-13"
+            FechaInicialPago="2017-01-01" FechaFinalPago="2017-01-15" NumDiasPagados="15"
+            TotalPercepciones="9533.69" TotalDeducciones="4007.87">
+            <nomina12:Emisor RegistroPatronal="F0312191102" RfcPatronOrigen="CTA8309277G2"/>
+            <nomina12:Receptor Curp="LOGL690103HTSPLS06" NumSeguridadSocial="49936932034"
+                FechaInicioRelLaboral="2001-02-16" Antigüedad="P830W" TipoContrato="01"
+                Sindicalizado="No" TipoJornada="99" TipoRegimen="02" NumEmpleado="14"
+                Departamento="CORPORATIVO"
+                Puesto="INGENIERO DE SISTEMAS" RiesgoPuesto="1"
+                PeriodicidadPago="04" CuentaBancaria="012813014918140281"
+                SalarioDiarioIntegrado="514.57" ClaveEntFed="TAM"/>
+            <nomina12:Percepciones TotalSueldos="9533.69" TotalGravado="6077.55"
+                TotalExento="3456.14">
+                <nomina12:Percepcion TipoPercepcion="001" Clave="1003" Concepto="Sueldos, Salarios Rayas y Jornales"
+                    ImporteGravado="4049.70" ImporteExento="0.00"/>
+                <nomina12:Percepcion TipoPercepcion="047" Clave="3005" Concepto="Ayuda Despensa"
+                    ImporteGravado="3.00" ImporteExento="0.00"/>
+                <nomina12:Percepcion TipoPercepcion="048" Clave="3025" Concepto="Ayuda habitacion"
+                    ImporteGravado="0.00" ImporteExento="2666.39"/>
+                <nomina12:Percepcion TipoPercepcion="001" Clave="3563"
+                    Concepto="Vacaciones disfrutadas" ImporteGravado="2024.85" ImporteExento="0.00"/>
+                <nomina12:Percepcion TipoPercepcion="005" Clave="5916"
+                    Concepto="Fondo de Ahorro Empresa" ImporteGravado="0.00" ImporteExento="789.75"
+                />
+            </nomina12:Percepciones>
+            <nomina12:Deducciones TotalOtrasDeducciones="3264.27" TotalImpuestosRetenidos="743.60">
+                <nomina12:Deduccion TipoDeduccion="002" Clave="5045" Concepto="ISPT a retener"
+                    Importe="743.60"/>
+                <nomina12:Deduccion TipoDeduccion="004" Clave="5910"
+                    Concepto="Aportacion FAHO Individuo" Importe="789.75"/>
+                <nomina12:Deduccion TipoDeduccion="004" Clave="5915"
+                    Concepto="Aportacion FAHO Empresa" Importe="789.75"/>
+                <nomina12:Deduccion TipoDeduccion="009" Clave="8035"
+                    Concepto="Amortizacion Real INFONAVIT" Importe="969.99"/>
+                <nomina12:Deduccion TipoDeduccion="009" Clave="8040"
+                    Concepto="Seguro Danos de Vivienda" Importe="15.00"/>
+                <nomina12:Deduccion TipoDeduccion="018" Clave="8509"
+                    Concepto="Aportacion a Caja de Ahorro" Importe="500.00"/>
+                <nomina12:Deduccion TipoDeduccion="001" Clave="9571" Concepto="Cuotas IMSS"
+                    Importe="199.78"/>
+            </nomina12:Deducciones>
+        </nomina12:Nomina>
+    </cfdi:Complemento>
+</cfdi:Comprobante>

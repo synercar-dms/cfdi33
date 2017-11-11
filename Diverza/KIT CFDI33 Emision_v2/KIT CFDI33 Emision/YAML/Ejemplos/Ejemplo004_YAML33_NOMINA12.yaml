@@ -1,0 +1,406 @@
+# Formato del archivo de texto para solicitar la generación de un comprobante fiscal digital por internet versión 3.3.
+# Este formato es compatible con YAML (http://www.yaml.org/spec/1.2/spec.html).
+# Puede generar el archivo manualmente o utilizar algún módulo displonible en: http://en.wikipedia.org/wiki/YAML#Bindings.
+# El archivo DEBE estar códificado en UTF-8 y sólo debe usar espacios para la identación (dos espacios al menos en cada identación), no tabs.
+# La identación es importante y determina la relación entre los elementos.
+# Los comentarios empiezan con un signo de # y debe existir un espacio después del signo #.
+# Las lineas vacias son ignoradas.
+--- !diverza.com/v2.0   # Todo documento debe empezar con esta marca y la indicación de la versión
+
+# Datos generales
+# Debe haber al menos un espacio después de los dos puntos.
+
+Comprobante: 
+
+  NombreCfdi                 : "FAC20170501001"                        # Dato opcional para indicar que nombre se le dara al archivo de salida XML y PDF del comprobante
+  RefId                      : "20170501001"                           # Atributo opcional para expresar un identificador interno que sirva de referencia para relacionar internamente el CFDi con los sistemas del usuario. Tiene una longitud máxima de 32 caracteres de tipo:  a-z,A-Z,0-9.
+  Version                    : "3.3"
+  Serie                      : "A"
+  Folio                      : "1000"
+  Fecha                      : "2017-05-15T18:13:51"
+  Sello                      : "sin sello"
+  FormaPago                  : "99"
+  NoCertificado              : "20001000000200001428"
+  Certificado                : "sin cert"
+  #CondicionesDePago          : "CondicionesDePago1"
+  SubTotal                   : "9533.69"
+  Descuento                  : "4007.87"
+  Moneda                     : "MXN"
+  TipoCambio                 : "1"
+  Total                      : "5525.82"
+  TipoDeComprobante          : "N"
+  MetodoPago                 : "PUE"
+  LugarExpedicion            : "45079"
+  #Confirmacion               : "00000"
+         
+  # CfdiRelacionados:         
+  #   TipoRelacion             : "01" 
+  #   CfdiRelacionado:        
+  #     - 
+  #       UUID                 : "00000000-0000-0000-0000-000000000000"
+  #     - 
+  #       UUID                 : "00000000-0000-0000-0000-000000000000"
+
+  # Nodo requerido para expresar la información del contribuyente emisor del comprobante.           
+  Emisor:         
+    Rfc                     : "AAA010101AAA"
+    Nombre                  : "Empresa AAA"
+    RegimenFiscal           : "601"
+   
+  # Nodo requerido para precisar la información del contribuyente receptor del comprobante.        
+  Receptor:         
+    Rfc                     : "LOGL690103H87"
+    Nombre                  : "LOPEZ GALVAN LUIS ROGELIO"
+    #ResidenciaFiscal        : "AFG"
+    #NumRegIdTrib            : "NumRegIdTrib1"
+    UsoCFDI                 : "G01"
+  
+  # Nodo requerido para listar los conceptos cubiertos por el comprobante.
+  Conceptos: 
+
+    # Nodo requerido para registrar la información detallada de un bien o servicio amparado en el comprobante.
+    - 
+      Concepto:
+      ClaveProdServ          : "84111505" 
+      #NoIdentificacion       : "NoIdentificacion0" 
+      Cantidad               : "1" 
+      ClaveUnidad            : "ACT"
+      #Unidad                 : "Unidad0" 
+      Descripcion            : "Pago de nómina" 
+      ValorUnitario          : "9533.69" 
+      Importe                : "9533.69"
+      Descuento              : "4007.87"
+
+      # Nodo opcional para capturar los impuestos aplicables al presente concepto. Cuando un concepto no registra un impuesto, implica que no es objeto del mismo.
+      # Nodo opcional para asentar los impuestos trasladados aplicables al presente concepto.
+      # Traslados:
+      #   - 
+      #     TrasladoBase        : "Base0" 
+      #     TrasladoImpuesto    : "Impuesto0" 
+      #     TrasladoTipoFactor  : "TipoFactor0" 
+      #     TrasladoTasaOCuota  : "TasaOCuota0" 
+      #     TrasladoImporte     : "Importe1"
+
+      #   - 
+      #     TrasladoBase        : "Base0" 
+      #     TrasladoImpuesto    : "Impuesto0" 
+      #     TrasladoTipoFactor  : "TipoFactor0" 
+      #     TrasladoTasaOCuota  : "TasaOCuota0" 
+      #     TrasladoImporte     : "Importe1"
+
+      # # Nodo opcional para asentar los impuestos retenidos aplicables al presente concepto.    
+      # Retenciones:
+      #   - 
+      #     RetencionBase       : "Base0" 
+      #     RetencionImpuesto   : "Impuesto0" 
+      #     RetencionTipoFactor : "TipoFactor0" 
+      #     RetencionTasaOCuota : "TasaOCuota0" 
+      #     RetencionImporte    : "Importe1"
+
+      #   - 
+      #     RetencionBase       : "Base0" 
+      #     RetencionImpuesto   : "Impuesto0" 
+      #     RetencionTipoFactor : "TipoFactor0" 
+      #     RetencionTasaOCuota : "TasaOCuota0" 
+      #     RetencionImporte    : "Importe1"
+
+      # # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.    
+      # InformacionAduanera:
+      #   - 
+      #     NumeroPedimento     : "00  00  0000  0000000"
+      #   - 
+      #     NumeroPedimento     : "00  00  0000  0000000"
+
+      # # Nodo opcional para asentar el número de cuenta predial con el que fue registrado el inmueble, en el sistema catastral de la entidad federativa de que trate, o bien para incorporar los datos de identificación del certificado de participación inmobiliaria no amortizable.
+      # CuentaPredialNumero    : "0"
+      
+      # ComplementoConcepto:
+        
+      # Parte:
+
+      #   - 
+      #     ClaveProdServ        : "ClaveProdServ1" 
+      #     NoIdentificacion     : "NoIdentificacion1" 
+      #     Cantidad             : "50.000000" 
+      #     Unidad               : "Unidad1"
+      #     Descripcion          : "Descripcion1" 
+      #     ValorUnitario        : "ValorUnitario1" 
+      #     Importe              : "Importe5"
+
+      #     # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios. 
+      #     InformacionAduanera:
+      #       - 
+      #         NumeroPedimento  : "00  00  0000  0000000"
+      #       - 
+      #         NumeroPedimento  : "00  00  0000  0000000"
+
+      #   - 
+      #     ClaveProdServ        : "ClaveProdServ1" 
+      #     NoIdentificacion     : "NoIdentificacion1" 
+      #     Cantidad             : "50.000000" 
+      #     Unidad               : "Unidad1"
+      #     Descripcion          : "Descripcion1" 
+      #     ValorUnitario        : "ValorUnitario1" 
+      #     Importe              : "Importe5"
+
+      #     # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.
+      #     InformacionAduanera:
+      #       - 
+      #         NumeroPedimento  : "00  00  0000  0000000"
+      #       - 
+      #         NumeroPedimento  : "00  00  0000  0000000"
+
+  Complemento:
+
+    # Datos del complemento de Nómina 1.2
+    Nomina:
+      -
+        TipoNomina             : "O"                                  # Atributo requerido para indicar el Tipo de Nómina, "O" para ordinaria, "E" para nómina extraordinaria.
+        FechaPago              : "2017-01-13"                         # Atributo requerido para la expresión de la fecha efectiva de erogación del gasto. Se expresa en la forma aaaa-mm-dd, de acuerdo con la especificación ISO 8601. Si el pago fue en Efectivo la fecha en la que se realizó la erogación por el pago en efectivo al trabajador, si fue con Cheque la fecha de emisión del cheque generado y si fue por Transferencia Electrónica la fecha en la que se ordenó al Banco realizar la transacción del pago a la cuenta del trabajador.
+        FechaInicialPago       : "2017-01-01"                         # Atributo requerido para la expresión de la fecha inicial del pago. Se expresa en la forma aaaa-mm-dd, de acuerdo con la especificación ISO 8601. Debe ser menor o igual a la fecha final de pago.
+        FechaFinalPago         : "2017-01-15"                         # Atributo requerido para la expresión de la fecha final del pago. Se expresa en la forma aaaa-mm-dd, de acuerdo con la especificación ISO 8601. Debe ser mayor o igual a la fecha inical de pago.
+        NumDiasPagados         : "15"                                 # Atributo opcional para la expresión del número de días pagados. El valor límite que se puede especificar es de 5490, se pueden expresar hasta tres decimales.
+        TotalPercepciones      : "9533.69"                           # Atributo condicional para representar la suma de las percepciones. Su valor es igual a la suma de el Total de Sueldos, más Percepción por Indemnización o similares más Percepción por Retiro o Jubilación.
+        TotalDeducciones       : "4007.87"                           # Atributo condicional para representar la suma de las deducciones aplicables. Su valor es igual a la suma del Total de Impuestos Retenidos más el Total de Otras Deducciones.
+        #TotalOtrosPagos        : "1840.00"                            # Atributo condicional para representar la suma de otros pagos. Su valor debe ser igual a la suma de todos los campos Importe de Otros Pagos. Si no existen conceptos por otros pagos, elimina esta línea.
+     
+        # Datos del Emisor en el Recibo de Nómina
+        NEmisor:
+          #Curp                   : ""                                 # Atributo condicional para expresar la CURP del emisor del comprobante de nómina cuando es una persona física. Solo existe si el RFC del Emisor es de 13 caracteres, para fines de documentación la línea solo es ilustrativa.
+          RegistroPatronal       : "F0312191102"                      # Atributo requerido para expresar el registro patronal a 20 posiciones máximo, se debe proporcionar cuando el Tipo de Contrato tiene valor entre "02" y "08".
+          RfcPatronOrigen        : "CTA8309277G2"
+  
+          # Datos de información condicional para que las entidades adheridas al Sistema Nacional de Coordinación Fiscal identifiquen el origen de los recursos utilizados en el pago de nómina del personal que presta o desempeña un servicio personal subordinado en las dependencias de la entidad federativa, del municipio o demarcación territorial de la Ciudad de México, así como en sus respectivos organismos autónomos y entidades paraestatales y paramunicipales, el bloque solo puede existir una vez de lo contrario se elimnan las líneas.
+          # EntidadSNCF:
+          #   OrigenRecurso        : "IM"                                # Atributo requerido para identificar el origen del recurso utilizado para el pago de nómina del personal que presta o desempeña un servicio personal subordinado o asimilado a salarios en las dependencias. Su valor debe ser una clave del catálogo c_OrigenRecurso.
+          #   MontoRecursoPropio   : "3000.00"                           # Atributo condicional para expresar el monto del recurso pagado con cargo a sus participaciones u otros ingresos locales (importe bruto de los ingresos propios, es decir total de gravados y exentos), cuando el origen es mixto. Se debe proporcionar valor si la clave del Origen del Recurso es "IM" (Ingresos Mixtos).
+     
+        # Datos del Receptor en el Recibo de Nómina
+        NReceptor:
+          NumEmpleado            : "14"                                 # Atributo requerido para expresar el número de empleado de 1 a 15 posiciones
+          Curp                   : "LOGL690103HTSPLS06"                 # Atributo requerido para la expresión de la CURP del trabajador
+          TipoContrato           : "01"                                 # Tipo de contrato que tiene el trabajador y se expresa con una clave de carálogo c_TipoContrato publicado por el SAT.
+          TipoRegimen            : "02"                                 # Atributo requerido para la expresión del tipo de régimen por el cual se tiene contratado al trabajador. Se debe expresar el valor que corresponda en el catálogo c_TipoRegimen publicado por el SAT. Si el Tipo de Contrato tiene un calor entre "01" y "08", este dato debe ser "02", "03" ó "04"
+          NumSeguridadSocial     : "49936932034"                        # Atributo opcional para la expresión del número de seguridad social aplicable al trabajador. Es obligatorio cuando existe un valor en Registro Patronal.
+          Departamento           : "CORPORATIVO"                        # Atributo opcional para la expresión del departamento o área a la que pertenece el trabajador
+          Puesto                 : "INGENIERO DE SISTEMAS"              # Puesto asignado al empleado o actividad que realiza.
+          RiesgoPuesto           : "1"                                  # Atributo opcional para expresar la clave conforme a la Clase en que deben inscribirse los patrones, de acuerdo con las actividades que desempeñan sus trabajadores, según lo previsto en el Art. 196 del Reglamento en Materia de Afiliación Clasificación de Empresas, Recaudación y Fiscalización, o conforme con la normatividad del Instituto de Seguridad Social del trabajador.  Se debe ingresar si existe un valor en Registro Patronal.
+          CuentaBancaria         : "012813014918140281"                 # Atributo opcional para la expresión de la cuenta en la que se abonó el pago, puede ser de 10 caracteres (número celular), 11 (cuenta bancaria), 15 ó 16 (tarjeta de debito, crédito o servicios) ó 18 para la CLABE
+          #Banco                  : ""                                   # Atributo opcional para la expresión la clave del Banco conforme al catalógo c_Banco publicado por el SAT.
+          FechaInicioRelLaboral  : "2001-02-16"                         # Atributo requerido para expresar la fecha de inicio de la relación laboral entre el empleador y el empleado. Solo debe existir si existe un valor en Registro Patronal.
+          Antigüedad             : "P830W"                              # Atributo opcional para exprear el tiempo que el patrón ha mantenido relación laboral con el empleador. Se puede expresar en semanas o años, meses y días, tomando en cuenta el siguiente formato P(([1-9][0-9]{0,3})|[0])W|P(([1-9][0-9]?Y)?([1-9]|1[012])M)?([0]|[1-9]|[12][0-9]|3[01])D
+          Sindicalizado          : "No"                                 # Atributo opcional para indicar si el trabajador está asociado a un sindicato. Su valor puede ser "Sí" o "No", si se omite se asume que no está asociado a algún sindicato
+          TipoJornada            : "99"                                 # Tipo de jornada que cubre el trabajador: Diurna, nocturna, mixta, por hora, reducida, continuada, partida, por turnos, etc. y se expresa la clave del catálogo c_TipoJornada que corresponda.
+          PeriodicidadPago       : "04"                                 # Forma en que se establece el pago del salario: diario, semanal, quincenal, catorcenal mensual, bimestral, unidad de obra, comisión, precio alzado, etc. Se debe expresar una clave del catálogo c_PeriodicidadPago publicado por el SAT. Se debe considerar que cuando el Tipo de Nomina es Ordinaria, los valores de este dato debe ser entre "01" y "09".
+          #SalarioBaseCotApor     : "13501.50"                           # Retribución otorgada al trabajador, que se integra por los pagos hechos en efectivo por cuota diaria, gratificaciones, percepciones, alimentación, habitación, primas, comisiones, prestaciones en especie y cualquiera otra cantidad o prestación que se entregue al trabajador por su trabajo
+          SalarioDiarioIntegrado : "514.57"                            # Atributo opcional para expresar el salario que se integra con los pagos hechos en efectivo por cuota diaria, gratificaciones, percepciones, habitación, primas, comisiones, prestaciones en especie y cualquier otra cantidad o prestación que se entregue al trabajador por su trabajo, de conformidad con el Art. 84 de la Ley Federal del Trabajo. (Se utiliza para el cálculo de las indemnizaciones).Se debe ingresar cuando exista un valor en el dato Registro Patronal.
+          ClaveEntFed            : "TAM"                                # Atributo requerido para expresar la clave de la entidad federativa en donde el receptor del recibo prestó el servicio. Su valor debe ser una clave del catálogo c_Estado publicado por el SAT en donde el país sea "MEX"
+     
+         # Subcontratación. Bloque condicional para expresar la lista de las personas que subcontrataron al emplado cuando así aplique. Pueden existir más de una referencia. La suma de los porcentajes de tiempo debe ser 100.
+         # El símbolo - indica inicio de un nuevo dato de empresa subcontratante. Debe haber un espacio después del símbolo -
+          SubContratacion:
+            - 
+              RfcLabora           : "ABC101101L45"                     # Atributo requerido para expresar el RFC de la persona que subcontrata.
+              PorcentajeTiempo    : "33.334"                           # Atributo requerido para expresar el porcentaje del tiempo que prestó sus servicios con el RFC que lo subcontrata. Se especifican tres decimales.
+            - 
+              RfcLabora           : "XYZ8903214R9"
+              PorcentajeTiempo    : "22.333"
+            - 
+              RfcLabora           : "FRG140908Y77"
+              PorcentajeTiempo    : "44.333"
+     
+         # Bloque condicional para expresar las percepciones aplicables - Percepciones
+        Percepciones:
+          TotalSueldos                 : "9533.69"                   # Atributo condicional para expresar el total de percepciones brutas (gravadas y exentas) por sueldos y salarios y conceptos asimilados a salarios. Su valor es la suma del Importe Gravado más Importe Exento de cada una de las percepciones incluidas distintas a los tipos "022", "023", "025", "039" ó "044". Si solo existen percepciones del tipo antes señalados, esta línea no debe existir.
+          #TotalSeparacionIndemnizacion : "28400.00"                   # Atributo condicional para expresar el importe exento y gravado de las claves tipo percepción "022" (Prima por Antigüedad), "023" (Pagos por separación) y "025" (Indemnizaciones). Su valor es la suma del Importe Gravado más Importe Exento de cada una de las percepciones incluidas con la clave de percepción tipo "022", "023" y "025".
+          #TotalJubilacionPensionRetiro : "5000.00"                    # Atributo condicional para expresar el importe exento y gravado de las claves tipo percepción "039" (Jubilaciones, pensiones o haberes de retiro en una exhibición) y "044" (Jubilaciones, pensiones o haberes de retiro en parcialidades). Su valor es la suma del Importe Gravado más Importe Exento de cada una de las percepciones incluidas con la clave de percepción tipo "039" y "044".
+          TotalGravado                 : "6077.55"                   # Atributo requerido para expresar el total de percepciones gravadas que se relacionan en el comprobante. Su valor es igual a la suma de todos los importes gravados de cada percepción, indistintamente de su tipo.
+          TotalExento                  : "3456.14"                    # Atributo requerido para expresar el total de percepciones exentas que se relacionan en el comprobante. Su valor es igual a la suma de todos los importes exentos de cada percepción, indistintamente de su tipo.
+     
+        # El siguiente bloque se repite por cada movimiento de percepción
+          Percepcion :
+            - 
+              TipoPercepcion : "001"                                  # Atributo requerido para expresar la Clave agrupadora bajo la cual se clasifica la percepción. Si valor debe ser una clave del catálogo c_TipoPercepcion publicado por el SAT.
+              Clave          : "1003"                              # Atributo requerido, representa la clave de Percepcion de nómina propia de la contabilidad de cada patrón, puede conformarse desde 3 hasta 15 caracteres
+              Concepto       : "Sueldos, Salarios Rayas y Jornales"   # Atributo requerido para la descripción del concepto de Percepcion, puede ser la descripción que le corresponfa a la clave del tipo de percepción del catálogo c_TipoPercepcion.
+              ImporteGravado : "4049.70"                              # Atributo requerido, representa el importe gravado de un concepto de Percepcion. Lleva dos decimales.
+              ImporteExento  : "0.00"                                 # Atributo requerido, representa el importe exento de un concepto de Percepcion. Lleva dos decimales.
+  
+            - 
+              TipoPercepcion : "047"
+              Clave          : "3005"
+              Concepto       : "Ayuda Despensa"
+              ImporteGravado : "3.00"
+              ImporteExento  : "0.00"
+  
+            - 
+              TipoPercepcion:  "048"
+              Clave          : "3025"
+              Concepto       : "Ayuda habitacion"
+              ImporteGravado : "0.00"
+              ImporteExento  : "2666.39"
+  
+            - 
+              TipoPercepcion : "001"
+              Clave          : "3563"
+              Concepto       : "Vacaciones disfrutadas"
+              ImporteGravado : "2024.85"
+              ImporteExento  : "0.00"
+  
+              # AccionesOTitulos. Bloque condicional para expresar ingresos por acciones o títulos valor que representan bienes. Se vuelve requerido cuando existan ingresos por sueldos derivados de adquisición de acciones o títulos (Art. 94, fracción VII LISR). Se especifica cuando existe una percepción tipo "045" de lo contrario no debe existir el bloque.
+              #AccionesOTitulos :
+              #  ValorMercado        : "50000.000001"                    # Atributo requerido para expresar el valor de mercado de las Acciones o Títulos valor al ejercer la opción. Se especifica a seis decimales
+              #  PrecioAlOtorgarse   : "30000.000000"                    # Atributo requerido para expresar el precio establecido al otorgarse la opción de ingresos en acciones o títulos valor. Se especifica con seis decimales.
+  
+            - 
+              TipoPercepcion : "005"
+              Clave          : "5916"
+              Concepto       : "Fondo de Ahorro Empresa"
+              ImporteGravado : "0.00"
+              ImporteExento  : "789.75"
+  
+              # HorasExtra. Bloque condicional para expresar las horas extra aplicables. Se especifica cuando existe una percepción tipo "019" de lo contrario no debe existir el bloque. Pueden existir más de un bloque de información.
+              # El símbolo - indica inicio de un nuevo dato de empresa subcontratante. Debe haber un espacio después del símbolo -
+              # HorasExtra:
+              #   - 
+              #     Dias             : "5"                           # Atributo requerido para expresar el número de días en que el trabajador realizó horas extra en el periodo. Valor mínimo de "1"
+              #     TipoHoras        : "03"                          # Atributo requerido para expresar el tipo de pago de las horas extra. Su valor debe ser una clave del catálogo c_TipoHoras
+              #     HorasExtra       : "10"                          # Atributo requerido para expresar el número de horas extra trabajadas en el periodo.
+              #     ImportePagado    : "3000.00"                     # Atributo requerido para expresar el importe pagado por las horas extra.
+  
+              #   - 
+              #     Dias             : "2"
+              #     TipoHoras        : "01"
+              #     HorasExtra       : "4"
+              #     ImportePagado    : "2400.00"
+     
+           # El siguiente bloque se epecifica solo una vez en el caso de que exista una percepción del tipo "039" ó "044". Si no es el caso el bloque no debe existir.
+     
+          # JubilacionPensionRetiro:
+          #   TotalUnaExhibicion      : "5000.00"                        # Atributo condicional que indica el monto total del pago cuando se realiza en una sola exhibición. Deberá especificarse cuando el tipo de percepción sea igual a "039". Si este atributo tiene valor, no deberán existir Total Parcialidad y Monto Diario.
+          #   TotalParcialidad        : ""                               # Atributo condicional para expresar los ingresos totales por pago cuando se hace en parcialidades. Deberá especificarse cuando el tipo de percepción sea igual a "044". Si tiene valor debe especificarse valor en Monto Diario y Total de una Exhibición no debe existir.
+          #   MontoDiario             : ""                               # Atributo condicional para expresar el monto diario percibido por jubilación, pensiones o haberes de retiro cuando se realiza en parcialidades. Deberá especificarse cuando el tipo de percepción sea igual a "044"; si existe, Total Parcialidad debe tener valor también.
+          #   IngresoAcumulable       : "5000.00"                        # Atributo requerido para expresar los ingresos acumulables.
+          #   IngresoNoAcumulable     : "0.00"                           # Atributo requerido para expresar los ingresos no acumulables.
+     
+          #  # El siguiente bloque se especifica solo una vez para expresar la información detallada de otros pagos por separación. Es decir aplicará en el caso de que exista una percepción del tipo "022", "023" ó "025". Si no es el caso el bloque no debe existir.
+     
+          # SeparacionIndemnizacion:
+          #   TotalPagado             : "28400.00"                       # Atributo requerido que indica el monto total del pago. Expresar a dos decimales.
+          #   NumAñosServicio         : "7"                              # Atributo requerido para expresar el número de años de servicio del trabajador. Se redondea al entero superior si la cifra contiene años y meses y hay más de 6 meses. Su valor puede ir de 1 a 75 años.
+          #   UltimoSueldoMensOrd     : "8000.00"                        # Atributo requerido que indica el último sueldo mensual ordinario. Expresar a dos decimales.
+          #   IngresoAcumulable       : "28400.00"                       # Atributo requerido para expresar los ingresos acumulables. Expresar a dos decimales.
+          #   IngresoNoAcumulable     : "0.00"                           # Atributo requerido que indica los ingresos no acumulables. Expresar a dos decimales.
+      
+          # El siguiente bloque es opcional y en él se expresa las deducciones aplicables del Recibo de Nómina.
+      
+          Deducciones:
+            TotalOtrasDeducciones     : "3264.27"                        # Atributo condicional para expresar el total de deducciones que se relacionan en el comprobante, donde la clave de tipo de deducción sea distinta a la "002" correspondiente a ISR.
+            TotalImpuestosRetenidos   : "743.60"                       # Atributo condicional para expresar el total de los impuestos federales retenidos, es decir, donde la clave de tipo de deducción sea "002" correspondiente a ISR. Si todos los tipos de deducción tienen un valor diferente a "002", esta línea no debe exisitir.
+      
+         # El siguiente bloque se repite por cada movimiento de deducción
+     
+            Deduccion    :
+              - 
+                TipoDeduccion  : "002"                                  # Atributo requerido para registrar la clave agrupadora que clasifica la deducción. Su valor debe ser una clave del catálogo c_TipoDeduccion.
+                Clave          : "5045"                              # Atributo requerido para la clave de deducción de nómina propia de la contabilidad de cada patrón, puede conformarse desde 3 hasta 15 caracteres.
+                Concepto       : "ISPT a retener"                     # Atributo requerido para la descripción del concepto de deducción.
+                Importe        : "743.60"                               # Atributo requerido para registrar el importe del concepto de deducción. El valor debe ser myor a "0.00" y si la clave del tipo de deducción es igual a "006", el valor de este dato deberá ser la suma del todos los atributos Importe Monetario de los bloques Incapacidad existentes.
+  
+              - 
+                TipoDeduccion  : "004"
+                Clave          : "5915"
+                Concepto       : "Aportacion FAHO Individuo"
+                Importe        : "789.75"
+  
+              - 
+                TipoDeduccion  : "004"
+                Clave          : "200-067"
+                Concepto       : "Aportacion FAHO Empresa"
+                Importe        : "789.75"
+  
+              - 
+                TipoDeduccion  : "009"
+                Clave          : "8035"
+                Concepto       : "Amortizacion Real INFONAVIT"
+                Importe        : "969.99"
+
+              - 
+                TipoDeduccion  : "009"
+                Clave          : "8040"
+                Concepto       : "Seguro Danos de Vivienda"
+                Importe        : "15.00"
+
+              - 
+                TipoDeduccion  : "018"
+                Clave          : "8509"
+                Concepto       : "Aportacion a Caja de Ahorro"
+                Importe        : "500.00"
+                
+              - 
+                TipoDeduccion  : "001"
+                Clave          : "9571"
+                Concepto       : "Cuotas IMSS"
+                Importe        : "199.78"
+      
+          # El siguiente bloque es condicional para expresar otros pagos aplicables del Recibo de Nómina.
+      
+          # OtrosPagos:
+      
+          #  # Este bloque se repite por cada movimiento de pago adicional.
+     
+          # OtroPago:
+          #   - 
+          #     TipoOtroPago          : "002"                                               # Atributo requerido para expresar la clave agrupadora bajo la cual se clasifica el otro pago. Su valor debe ser una opción del catálogo c_TipoOtroPago publicado por el SAT.
+          #     Clave                 : "300-100"                                           # Atributo requerido, representa la clave de otro pago de nómina propia de la contabilidad de cada patrón, puede conformarse desde 3 hasta 15 caracteres.
+          #     Concepto              : "Subsidio efectivamente entregado al trabajdor"     # Atributo requerido para la descripción del concepto de otro pago. La longitud de este dato va de 1 hasta 100 caracteres.
+          #     Importe               : "600.00"                                            # Atributo requerido para expresar el importe del concepto de otro pago. Su valor debe ser mayor a "0.00", se expresa con dos decimales.
+     
+          #      # Este bloque es condicional y se especifica solo una vez para expresar la información referente al subsidio al empleo del trabajador. Es decir aplicará en el caso de que exista otro pago del tipo "002". Si no es el caso el bloque no debe existir.
+          #     SubsidioAlEmpleo:
+          #       SubsidioCausado     : "600.00"                                           # Atributo requerido para expresar el subsidio causado conforme a la tabla del subsidio para el empleo publicada en el Anexo 8 de la RMF vigente. Su valor debe ser mayor o igual al Importe de Otro Pago
+     
+          #   - 
+          #     TipoOtroPago          : "004"
+          #     Clave                 : "300-140"
+          #     Concepto              : "Aplicación de saldo a favor por compensación anual"
+          #     Importe               : "1240.00"
+     
+          #      # Este bloque es condicional y se especifica solo una vez para para expresar la información referente a la compensación de saldos a favor de un trabajador. Es decir aplicará en el caso de que exista otro pago del tipo "004". Si no es el caso el bloque no debe existir.
+          #     CompensacionSaldosAFavor:
+          #       SaldoAFavor         : "1300.00"                                          # Atributo requerido para expresar el saldo a favor determinado por el patrón al trabajador en periodos o ejercicios anteriores. Su valor es equivalente a la suma del Importe de Otro Pago más Remanente de Saldo a Favor.
+          #       Año                 : "2016"                                             # Atributo requerido para expresar el año en que se determinó el saldo a favor del trabajador por el patrón que se incluye en el campo “RemanenteSalFav”. Su valor debe ser menor o igual al año en curso.
+          #       RemanenteSalFav     : "60.00"                                            # Atributo requerido para expresar el remanente del saldo a favor del trabajador.
+      
+          # # Bloque opcional para expresar información de las incapacidades. Si se incluye una Percepción de tipo "014" (Subsidios por Incapacidad) o si la clave del tipo de Deducción es igual a "006" (Descuento por Incapacidad), el bloque es obligatorio.
+      
+          # Incapacidades:
+          #    # Este bloque es requerido y se repite por cada movimiento de incapacidad.
+          #   Incapacidad:
+          #     - 
+          #       DiasIncapacidad         : "3"                                              # Atributo requerido para expresar el número de días enteros que el trabajador se incapacitó en el periodo.
+          #       TipoIncapacidad         : "02"                                             # Atributo requerido para expresar la razón de la incapacidad. Su valor debe ser una opción de clave del catálogo c_TipoIncapacidad.
+          #       ImporteMonetario        : "1000.00"                                        # Atributo condicional para expresar el monto del importe monetario de la incapacidad. Si se coloca por exisitr un Tipo de Percepción igual a "014", el valor de este campor debe ser igual al importe gravado más el importe excento de la Percpeción.
+     
+          #     - 
+          #       DiasIncapacidad         : "30"
+          #       TipoIncapacidad         : "03"
+          #       ImporteMonetario        : "600.00"
+
+ 
+  Addenda: 
+ 
+
+ # Otros. Bloque informativo para especificar información extra que desee expresar en la representación impresa del comprobante. Datos que serán registrados en la Addenda.
+ # El símbolo - indica inicio de una nueva leyenda de información. Debe haber un espacio después del símbolo -
+
+  LeyendasImpresion:
+    - 
+      Atributo : "agradecimiento"                                                            # Atributo opcional para expresar el nombre de una leyenda especial.
+      Valor    : "Gracias por el esfuerzo para terminar oportunamente el Proyecto"           # Atributo opcional para expresar el valor de una leyenda espacial breve.
+
+    - 
+      Atributo : "administrativo"                                                            # Atributo opcional para expresar el nombre de una leyenda especial.
+      Valor    : "Recuerda presentar los comprobantes de gastos de viaje dentro de los tres días siguientes a la terminación del mismo"             # Atributo opcional para expresar el valor de una leyenda espacial breve.
+
+

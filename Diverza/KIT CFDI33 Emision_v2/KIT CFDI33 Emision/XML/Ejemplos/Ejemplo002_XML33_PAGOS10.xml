@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pago10="http://www.sat.gob.mx/Pagos"
+    xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd http://www.sat.gob.mx/Pagos http://www.sat.gob.mx/sitio_internet/cfd/Pagos/Pagos10.xsd"
+    Version="3.3" Folio="0017583"
+    Fecha="2017-05-03T11:21:06"
+    Sello="sin sello"
+    NoCertificado="20001000000200001428"
+    Certificado="sin cert"
+    SubTotal="0" Moneda="XXX" Total="0"
+    TipoDeComprobante="P" LugarExpedicion="44630"
+    xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+    <cfdi:CfdiRelacionados TipoRelacion="01">
+        <cfdi:CfdiRelacionado UUID="B39DA66B-42CA-50E3-879B-6C0518BB0EF4"/>
+    </cfdi:CfdiRelacionados>
+    <cfdi:Emisor Rfc="AAA010101AAA" Nombre="Empresa Prueba A"
+        RegimenFiscal="601"/>
+    <cfdi:Receptor Rfc="BBB010101000" Nombre="Empresa Prueba B" UsoCFDI="P01"/>
+    <cfdi:Conceptos>
+        <cfdi:Concepto ClaveProdServ="84111506" Cantidad="1"
+            ClaveUnidad="ACT" Descripcion="Pago"
+            ValorUnitario="0" Importe="0">
+        </cfdi:Concepto>
+    </cfdi:Conceptos>
+    <cfdi:Complemento>
+        <pago10:Pagos Version="1.0">
+            <pago10:Pago FechaPago="2017-03-22T09:00:00" FormaDePagoP="03" MonedaP="MXN"
+                Monto="112092.34" RfcEmisorCtaOrd="AAA010101AAA" CtaOrdenante="1234567890"
+                NomBancoOrdExt="Banco A">
+            <pago10:DoctoRelacionado IdDocumento="B39DA66B-42CA-50E3-879B-6C0518BB0EF4" Serie="A" Folio="1000" MonedaDR="MXN"
+                MetodoDePagoDR="PUE" NumParcialidad="1" ImpSaldoAnt="112092.34" ImpPagado="112092.34" ImpSaldoInsoluto="0"/>
+            </pago10:Pago>
+        </pago10:Pagos>
+    </cfdi:Complemento>
+</cfdi:Comprobante>

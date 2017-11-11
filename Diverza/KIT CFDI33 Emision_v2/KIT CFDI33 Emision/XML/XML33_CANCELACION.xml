@@ -1,0 +1,2 @@
+<ns:RequestCancelaCFDi xmlns:ns="http://www.buzonfiscal.com/ns/xsd/bf/bfcorp/32"
+    rfcEmisor="AAA010101AAA" rfcReceptor="BBB010101BBB" uuid="badecb69-50a6-4b96-a9ca-2dd29720199b"/>

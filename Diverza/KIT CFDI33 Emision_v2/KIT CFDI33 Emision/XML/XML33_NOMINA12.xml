@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Comprobante xmlns:catCFDI="http://www.sat.gob.mx/sitio_internet/cfd/catalogos"
+ xmlns="http://www.sat.gob.mx/cfd/3"
+ xmlns:tdCFDI="http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 file:/Users/osvaldosanchez/Documents/PROYECTOS/2017/SAT/CFDI%203.3/20Feb2017/cfdv33.xsd" Version="3.3" Serie="Serie1" Folio="Folio1" Fecha="2006-05-04T18:13:51.0Z" Sello="Sello1" FormaPago="01"
+     NoCertificado="00000000000000000000" Certificado="Certificado1" CondicionesDePago="CondicionesDePago1"
+     SubTotal="50.000000" Descuento="50.000000" Moneda="AED" TipoCambio="50.000000" Total="50.000000"
+     TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="00000" Confirmacion="00000">
+    <CfdiRelacionados TipoRelacion="01">
+        <CfdiRelacionado UUID="00000000-0000-0000-0000-000000000000"/>
+        <CfdiRelacionado UUID="00000000-0000-0000-0000-000000000000"/>
+    </CfdiRelacionados>
+    <Emisor Rfc="&amp;&amp;&amp;000101000" Nombre="Nombre1" RegimenFiscal="601"/>
+    <Receptor Rfc="&amp;&amp;&amp;000101000" Nombre="Nombre3" ResidenciaFiscal="AFG" NumRegIdTrib="NumRegIdTrib1"
+         UsoCFDI="G01"/>
+    <Conceptos>
+        <Concepto ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion1" Cantidad="50.000000" ClaveUnidad="C81"
+             Unidad="Unidad1" Descripcion="Descripcion1" ValorUnitario="50.000000" Importe="50.000000"
+             Descuento="50.000000">
+            <Impuestos>
+                <Traslados>
+                    <Traslado Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+                    <Traslado Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+                </Traslados>
+                <Retenciones>
+                    <Retencion Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="50.000000" Importe="50.000000"/>
+                    <Retencion Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="50.000000" Importe="50.000000"/>
+                </Retenciones>
+            </Impuestos>
+            <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            <CuentaPredial Numero="0"/>
+            <ComplementoConcepto>
+            </ComplementoConcepto>
+            <Parte ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion3" Cantidad="50.000000" Unidad="Unidad3"
+                 Descripcion="Descripcion3" ValorUnitario="50.000000" Importe="50.000000">
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            </Parte>
+            <Parte ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion5" Cantidad="50.000000" Unidad="Unidad5"
+                 Descripcion="Descripcion5" ValorUnitario="50.000000" Importe="50.000000">
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            </Parte>
+        </Concepto>
+        <Concepto ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion7" Cantidad="50.000000" ClaveUnidad="C81"
+             Unidad="Unidad7" Descripcion="Descripcion7" ValorUnitario="50.000000" Importe="50.000000"
+             Descuento="50.000000">
+            <Impuestos>
+                <Traslados>
+                    <Traslado Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+                    <Traslado Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+                </Traslados>
+                <Retenciones>
+                    <Retencion Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="50.000000" Importe="50.000000"/>
+                    <Retencion Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="50.000000" Importe="50.000000"/>
+                </Retenciones>
+            </Impuestos>
+            <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            <CuentaPredial Numero="0"/>
+            <ComplementoConcepto>
+            </ComplementoConcepto>
+            <Parte ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion9" Cantidad="50.000000" Unidad="Unidad9"
+                 Descripcion="Descripcion9" ValorUnitario="50.000000" Importe="50.000000">
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            </Parte>
+            <Parte ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion11" Cantidad="50.000000" Unidad="Unidad11"
+                 Descripcion="Descripcion11" ValorUnitario="50.000000" Importe="50.000000">
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            </Parte>
+        </Concepto>
+    </Conceptos>
+    <Impuestos TotalImpuestosRetenidos="50.000000" TotalImpuestosTrasladados="50.000000">
+        <Retenciones>
+            <Retencion Impuesto="001" Importe="50.000000"/>
+            <Retencion Impuesto="001" Importe="50.000000"/>
+        </Retenciones>
+        <Traslados>
+            <Traslado Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+            <Traslado Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+        </Traslados>
+    </Impuestos>
+    <Complemento>
+        <nomina12:Nomina xmlns:nomina12="http://www.sat.gob.mx/nomina12"
+            xmlns:catCFDI="http://www.sat.gob.mx/sitio_internet/cfd/catalogos"
+            xmlns:tdCFDI="http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI"
+            xmlns:catNomina="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/Nomina"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.sat.gob.mx/nomina12 file:/Users/osvaldosanchez/Documents/PROYECTOS/2016/SAT/Nomina%201.2/Enero2017/nomina12.xsd" Version="1.2" TipoNomina="TipoNomina1" FechaPago="FechaPago1" FechaInicialPago="FechaInicialPago1" FechaFinalPago="FechaFinalPago1"
+            NumDiasPagados="18080.000" TotalPercepciones="TotalPercepciones1" TotalDeducciones="TotalDeducciones1"
+            TotalOtrosPagos="TotalOtrosPagos1">
+            <nomina12:Emisor Curp="Curp1" RegistroPatronal="RegistroPatronal1" RfcPatronOrigen="RfcPatronOrigen1">
+                <nomina12:EntidadSNCF OrigenRecurso="OrigenRecurso1" MontoRecursoPropio="MontoRecursoPropio1"/>
+            </nomina12:Emisor>
+            <nomina12:Receptor Curp="Curp3" NumSeguridadSocial="0" FechaInicioRelLaboral="FechaInicioRelLaboral1" Antigüedad="P1W"
+                TipoContrato="TipoContrato1" Sindicalizado="Sí" TipoJornada="TipoJornada1" TipoRegimen="TipoRegimen1"
+                NumEmpleado="NumEmpleado1" Departamento="Departamento1" Puesto="Puesto1" RiesgoPuesto="RiesgoPuesto1"
+                PeriodicidadPago="PeriodicidadPago1" Banco="Banco1" CuentaBancaria="CuentaBancaria1" SalarioBaseCotApor="SalarioBaseCotApor1"
+                SalarioDiarioIntegrado="SalarioDiarioIntegrado1" ClaveEntFed="ClaveEntFed1">
+                <nomina12:SubContratacion RfcLabora="RfcLabora1" PorcentajeTiempo="50.00"/>
+                <nomina12:SubContratacion RfcLabora="RfcLabora3" PorcentajeTiempo="50.00"/>
+            </nomina12:Receptor>
+            <nomina12:Percepciones TotalSueldos="TotalSueldos1" TotalSeparacionIndemnizacion="TotalSeparacionIndemnizacion1" TotalJubilacionPensionRetiro="TotalJubilacionPensionRetiro1"
+                TotalGravado="TotalGravado1" TotalExento="TotalExento1">
+                <nomina12:Percepcion TipoPercepcion="TipoPercepcion1" Clave="Clave1" Concepto="Concepto1" ImporteGravado="ImporteGravado1"
+                    ImporteExento="ImporteExento1">
+                    <nomina12:AccionesOTitulos ValorMercado="50.000000" PrecioAlOtorgarse="50.000000"/>
+                    <nomina12:HorasExtra Dias="50" TipoHoras="TipoHoras1" HorasExtra="50" ImportePagado="ImportePagado1"/>
+                    <nomina12:HorasExtra Dias="50" TipoHoras="TipoHoras3" HorasExtra="50" ImportePagado="ImportePagado3"/>
+                </nomina12:Percepcion>
+                <nomina12:Percepcion TipoPercepcion="TipoPercepcion3" Clave="Clave3" Concepto="Concepto3" ImporteGravado="ImporteGravado3"
+                    ImporteExento="ImporteExento3">
+                    <nomina12:AccionesOTitulos ValorMercado="50.000000" PrecioAlOtorgarse="50.000000"/>
+                    <nomina12:HorasExtra Dias="50" TipoHoras="TipoHoras5" HorasExtra="50" ImportePagado="ImportePagado5"/>
+                    <nomina12:HorasExtra Dias="50" TipoHoras="TipoHoras7" HorasExtra="50" ImportePagado="ImportePagado7"/>
+                </nomina12:Percepcion>
+                <nomina12:JubilacionPensionRetiro TotalUnaExhibicion="TotalUnaExhibicion1" TotalParcialidad="TotalParcialidad1" MontoDiario="MontoDiario1"
+                    IngresoAcumulable="IngresoAcumulable1" IngresoNoAcumulable="IngresoNoAcumulable1"/>
+                <nomina12:SeparacionIndemnizacion TotalPagado="TotalPagado1" NumAñosServicio="50" UltimoSueldoMensOrd="UltimoSueldoMensOrd1" IngresoAcumulable="IngresoAcumulable3"
+                    IngresoNoAcumulable="IngresoNoAcumulable3"/>
+            </nomina12:Percepciones>
+            <nomina12:Deducciones TotalOtrasDeducciones="TotalOtrasDeducciones1" TotalImpuestosRetenidos="TotalImpuestosRetenidos1">
+                <nomina12:Deduccion TipoDeduccion="TipoDeduccion1" Clave="Clave5" Concepto="Concepto5" Importe="Importe1"/>
+                <nomina12:Deduccion TipoDeduccion="TipoDeduccion3" Clave="Clave7" Concepto="Concepto7" Importe="Importe3"/>
+            </nomina12:Deducciones>
+            <nomina12:OtrosPagos>
+                <nomina12:OtroPago TipoOtroPago="TipoOtroPago1" Clave="Clave9" Concepto="Concepto9" Importe="Importe5">
+                    <nomina12:SubsidioAlEmpleo SubsidioCausado="SubsidioCausado1"/>
+                    <nomina12:CompensacionSaldosAFavor SaldoAFavor="SaldoAFavor1" Año="17391" RemanenteSalFav="RemanenteSalFav1"/>
+                </nomina12:OtroPago>
+                <nomina12:OtroPago TipoOtroPago="TipoOtroPago3" Clave="Clave11" Concepto="Concepto11" Importe="Importe7">
+                    <nomina12:SubsidioAlEmpleo SubsidioCausado="SubsidioCausado3"/>
+                    <nomina12:CompensacionSaldosAFavor SaldoAFavor="SaldoAFavor3" Año="17391" RemanenteSalFav="RemanenteSalFav3"/>
+                </nomina12:OtroPago>
+            </nomina12:OtrosPagos>
+            <nomina12:Incapacidades>
+                <nomina12:Incapacidad DiasIncapacidad="50" TipoIncapacidad="TipoIncapacidad1" ImporteMonetario="ImporteMonetario1"/>
+                <nomina12:Incapacidad DiasIncapacidad="50" TipoIncapacidad="TipoIncapacidad3" ImporteMonetario="ImporteMonetario3"/>
+            </nomina12:Incapacidades>
+        </nomina12:Nomina>
+    </Complemento>
+    <Addenda>
+        <anyElement/>
+        <anyElement/>
+    </Addenda>
+</Comprobante>

@@ -1,0 +1,366 @@
+# Formato del archivo de texto para solicitar la generación de un comprobante fiscal digital por internet versión 3.3.
+# Este formato es compatible con YAML (http://www.yaml.org/spec/1.2/spec.html).
+# Puede generar el archivo manualmente o utilizar algún módulo displonible en: http://en.wikipedia.org/wiki/YAML#Bindings.
+# El archivo DEBE estar códificado en UTF-8 y sólo debe usar espacios para la identación (dos espacios al menos en cada identación), no tabs.
+# La identación es importante y determina la relación entre los elementos.
+# Los comentarios empiezan con un signo de # y debe existir un espacio después del signo #.
+# Las lineas vacias son ignoradas.
+--- !diverza.com/v2.0   # Todo documento debe empezar con esta marca y la indicación de la versión
+
+# Datos generales
+# Debe haber al menos un espacio después de los dos puntos.
+
+Comprobante: 
+
+  NombreCfdi                 : "FAC20170501001"                        # Dato opcional para indicar que nombre se le dara al archivo de salida XML y PDF del comprobante
+  RefId                      : "20170501001"                           # Atributo opcional para expresar un identificador interno que sirva de referencia para relacionar internamente el CFDi con los sistemas del usuario. Tiene una longitud máxima de 32 caracteres de tipo:  a-z,A-Z,0-9.
+  Version                    : "3.3"
+  Serie                      : "A"
+  Folio                      : "1000"
+  Fecha                      : "2017-05-15T18:13:51"
+  Sello                      : "sin sello"
+  FormaPago                  : "01"
+  NoCertificado              : "20001000000200001428"
+  Certificado                : "sin cert"
+  CondicionesDePago          : "CondicionesDePago1"
+  SubTotal                   : "2269400"
+  #Descuento                  : "50.000000"
+  Moneda                     : "MXN"
+  TipoCambio                 : "1"
+  Total                      : "2631654"
+  TipoDeComprobante          : "I"
+  MetodoPago                 : "PUE"
+  LugarExpedicion            : "45079"
+  #Confirmacion               : "00000"
+         
+  CfdiRelacionados:         
+    TipoRelacion             : "01" 
+    CfdiRelacionado:        
+      - 
+        UUID                 : "B39DA66B-42CA-50E3-879B-6C0518BB0EF4"
+      #- 
+      #  UUID                 : "00000000-0000-0000-0000-000000000000"
+
+  # Nodo requerido para expresar la información del contribuyente emisor del comprobante.           
+  Emisor:         
+    Rfc                     : "AAA010101AAA"
+    Nombre                  : "Empresa AAA"
+    RegimenFiscal           : "601"
+   
+  # Nodo requerido para precisar la información del contribuyente receptor del comprobante.        
+  Receptor:         
+    Rfc                     : "XAXX010101000"
+    Nombre                  : "Publico en General"
+    ResidenciaFiscal        : "MEX"
+    #NumRegIdTrib            : "NumRegIdTrib1"
+    UsoCFDI                 : "G01"
+  
+  # Nodo requerido para listar los conceptos cubiertos por el comprobante.
+  Conceptos: 
+
+    # Nodo requerido para registrar la información detallada de un bien o servicio amparado en el comprobante.
+    - 
+      Concepto:
+      ClaveProdServ          : "01010101" 
+      NoIdentificacion       : "100001" 
+      Cantidad               : "1.5" 
+      ClaveUnidad            : "F52"
+      Unidad                 : "TONELADA" 
+      Descripcion            : "Articulo 1" 
+      ValorUnitario          : "1500000" 
+      Importe                : "2250000"
+      #Descuento              : "Descuento1"
+
+      # Nodo opcional para capturar los impuestos aplicables al presente concepto. Cuando un concepto no registra un impuesto, implica que no es objeto del mismo.
+      # Nodo opcional para asentar los impuestos trasladados aplicables al presente concepto.
+      Traslados:
+        - 
+          TrasladoBase        : "2250000" 
+          TrasladoImpuesto    : "001" 
+          TrasladoTipoFactor  : "Tasa" 
+          TrasladoTasaOCuota  : "0.160000" 
+          TrasladoImporte     : "360000"
+
+        #- 
+        #  TrasladoBase        : "Base0" 
+        #  TrasladoImpuesto    : "Impuesto0" 
+        #  TrasladoTipoFactor  : "TipoFactor0" 
+        #  TrasladoTasaOCuota  : "TasaOCuota0" 
+        #  TrasladoImporte     : "Importe1"
+
+      # Nodo opcional para asentar los impuestos retenidos aplicables al presente concepto.    
+      #Retenciones:
+      #  - 
+      #    RetencionBase       : "Base0" 
+      #    RetencionImpuesto   : "Impuesto0" 
+      #    RetencionTipoFactor : "TipoFactor0" 
+      #    RetencionTasaOCuota : "TasaOCuota0" 
+      #    RetencionImporte    : "Importe1"
+      #
+      #  - 
+      #    RetencionBase       : "Base0" 
+      #    RetencionImpuesto   : "Impuesto0" 
+      #    RetencionTipoFactor : "TipoFactor0" 
+      #    RetencionTasaOCuota : "TasaOCuota0" 
+      #    RetencionImporte    : "Importe1"
+
+      # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.    
+      #InformacionAduanera:
+      #  - 
+      #    NumeroPedimento     : "00  00  0000  0000000"
+      #  - 
+      #    NumeroPedimento     : "00  00  0000  0000000"
+
+      # Nodo opcional para asentar el número de cuenta predial con el que fue registrado el inmueble, en el sistema catastral de la entidad federativa de que trate, o bien para incorporar los datos de identificación del certificado de participación inmobiliaria no amortizable.
+      #CuentaPredialNumero    : "0"
+      
+      #ComplementoConcepto:
+      #  
+      #Parte:
+      #
+      #  - 
+      #    ClaveProdServ        : "ClaveProdServ1" 
+      #    NoIdentificacion     : "NoIdentificacion1" 
+      #    Cantidad             : "50.000000" 
+      #    Unidad               : "Unidad1"
+      #    Descripcion          : "Descripcion1" 
+      #    ValorUnitario        : "ValorUnitario1" 
+      #    Importe              : "Importe5"
+
+          # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios. 
+      #    InformacionAduanera:
+      #      - 
+      #        NumeroPedimento  : "00  00  0000  0000000"
+      #      - 
+      #        NumeroPedimento  : "00  00  0000  0000000"
+
+    - 
+      Concepto:
+      ClaveProdServ          : "01010101" 
+      NoIdentificacion       : "100002" 
+      Cantidad               : "1.6" 
+      ClaveUnidad            : "F52"
+      Unidad                 : "TONELADA" 
+      Descripcion            : "Articulo 2" 
+      ValorUnitario          : "1500" 
+      Importe                : "2400"
+      #Descuento              : "Descuento1"
+
+      # Nodo opcional para capturar los impuestos aplicables al presente concepto. Cuando un concepto no registra un impuesto, implica que no es objeto del mismo.
+      # Nodo opcional para asentar los impuestos trasladados aplicables al presente concepto.
+      Traslados:
+        - 
+          TrasladoBase        : "2400" 
+          TrasladoImpuesto    : "001" 
+          TrasladoTipoFactor  : "Tasa" 
+          TrasladoTasaOCuota  : "0.160000" 
+          TrasladoImporte     : "384"
+
+        #- 
+        #  TrasladoBase        : "Base0" 
+        #  TrasladoImpuesto    : "Impuesto0" 
+        #  TrasladoTipoFactor  : "TipoFactor0" 
+        #  TrasladoTasaOCuota  : "TasaOCuota0" 
+        #  TrasladoImporte     : "Importe1"
+
+      # Nodo opcional para asentar los impuestos retenidos aplicables al presente concepto.    
+      #Retenciones:
+      #  - 
+      #    RetencionBase       : "Base0" 
+      #    RetencionImpuesto   : "Impuesto0" 
+      #    RetencionTipoFactor : "TipoFactor0" 
+      #    RetencionTasaOCuota : "TasaOCuota0" 
+      #    RetencionImporte    : "Importe1"
+      #
+      #  - 
+      #    RetencionBase       : "Base0" 
+      #    RetencionImpuesto   : "Impuesto0" 
+      #    RetencionTipoFactor : "TipoFactor0" 
+      #    RetencionTasaOCuota : "TasaOCuota0" 
+      #    RetencionImporte    : "Importe1"
+
+      # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.    
+      #InformacionAduanera:
+      #  - 
+      #    NumeroPedimento     : "00  00  0000  0000000"
+      #  - 
+      #    NumeroPedimento     : "00  00  0000  0000000"
+
+      # Nodo opcional para asentar el número de cuenta predial con el que fue registrado el inmueble, en el sistema catastral de la entidad federativa de que trate, o bien para incorporar los datos de identificación del certificado de participación inmobiliaria no amortizable.
+      #CuentaPredialNumero    : "0"
+      
+      #ComplementoConcepto:
+      #  
+      #Parte:
+      #
+      #  - 
+      #    ClaveProdServ        : "ClaveProdServ1" 
+      #    NoIdentificacion     : "NoIdentificacion1" 
+      #    Cantidad             : "50.000000" 
+      #    Unidad               : "Unidad1"
+      #    Descripcion          : "Descripcion1" 
+      #    ValorUnitario        : "ValorUnitario1" 
+      #    Importe              : "Importe5"
+
+          # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios. 
+      #    InformacionAduanera:
+      #      - 
+      #        NumeroPedimento  : "00  00  0000  0000000"
+      #      - 
+      #        NumeroPedimento  : "00  00  0000  0000000"
+
+
+        - 
+          ClaveProdServ        : "ClaveProdServ1" 
+          NoIdentificacion     : "NoIdentificacion1" 
+          Cantidad             : "50.000000" 
+          Unidad               : "Unidad1"
+          Descripcion          : "Descripcion1" 
+          ValorUnitario        : "ValorUnitario1" 
+          Importe              : "Importe5"
+
+          # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.
+          InformacionAduanera:
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+
+    - 
+      Concepto:
+      ClaveProdServ          : "01010101" 
+      NoIdentificacion       : "100003" 
+      Cantidad               : "1.7" 
+      ClaveUnidad            : "F52"
+      Unidad                 : "TONELADA" 
+      Descripcion            : "METALES" 
+      ValorUnitario          : "10000" 
+      Importe                : "17000"
+      #Descuento              : "Descuento1"
+      
+      # Nodo opcional para capturar los impuestos aplicables al presente concepto. Cuando un concepto no registra un impuesto, implica que no es objeto del mismo.
+      # Nodo opcional para asentar los impuestos trasladados aplicables al presente concepto.
+      Traslados:
+        - 
+          TrasladoBase        : "17000" 
+          TrasladoImpuesto    : "001" 
+          TrasladoTipoFactor  : "Tasa" 
+          TrasladoTasaOCuota  : "0.160000" 
+          TrasladoImporte     : "1870"
+
+        #- 
+        #  TrasladoBase        : "Base0" 
+        #  TrasladoImpuesto    : "Impuesto0" 
+        #  TrasladoTipoFactor  : "TipoFactor0" 
+        #  TrasladoTasaOCuota  : "TasaOCuota0" 
+        #  TrasladoImporte     : "Importe1"
+
+      # Nodo opcional para asentar los impuestos retenidos aplicables al presente concepto.     
+      #Retenciones:
+      #  - 
+      #    RetencionBase       : "Base0" 
+      #    RetencionImpuesto   : "Impuesto0" 
+      #    RetencionTipoFactor : "TipoFactor0" 
+      #    RetencionTasaOCuota : "TasaOCuota0" 
+      #    RetencionImporte    : "Importe1"
+      #
+      #  - 
+      #    RetencionBase       : "Base0" 
+      #    RetencionImpuesto   : "Impuesto0" 
+      #    RetencionTipoFactor : "TipoFactor0" 
+      #    RetencionTasaOCuota : "TasaOCuota0" 
+      #    RetencionImporte    : "Importe1"
+
+      # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.    
+      #InformacionAduanera:
+      #  - 
+      #    NumeroPedimento     : "00  00  0000  0000000"
+      #  - 
+      #    NumeroPedimento     : "00  00  0000  0000000"
+
+      # Nodo opcional para asentar el número de cuenta predial con el que fue registrado el inmueble, en el sistema catastral de la entidad federativa de que trate, o bien para incorporar los datos de identificación del certificado de participación inmobiliaria no amortizable.
+      #CuentaPredialNumero    : "0"
+
+      # Nodo opcional donde se incluyen los nodos complementarios de extensión al concepto definidos por el SAT, de acuerdo con las disposiciones particulares para un sector o actividad específic
+      ComplementoConcepto:
+      
+      # Nodo opcional para expresar las partes o componentes que integran la totalidad del concepto expresado en el comprobante fiscal digital por Internet.
+      Parte:
+
+        - 
+          ClaveProdServ        : "01010101" 
+          NoIdentificacion     : "055155" 
+          Cantidad             : "1.0" 
+          Unidad               : "UNIDAD"
+          Descripcion          : "PARTE EJEMPLO" 
+          ValorUnitario        : "1.00" 
+          Importe              : "1.00"
+
+          # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.
+          #InformacionAduanera:
+          #  - 
+          #    NumeroPedimento  : "00  00  0000  0000000"
+          #  - 
+          #    NumeroPedimento  : "00  00  0000  0000000"
+
+        #- 
+        #  ClaveProdServ        : "ClaveProdServ1" 
+        #  NoIdentificacion     : "NoIdentificacion1" 
+        #  Cantidad             : "50.000000" 
+        #  Unidad               : "Unidad1"
+        #  Descripcion          : "Descripcion1" 
+        #  ValorUnitario        : "ValorUnitario1" 
+        #  Importe              : "Importe5"
+
+          # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.
+        #  InformacionAduanera:
+        #    - 
+        #      NumeroPedimento  : "00  00  0000  0000000"
+        #    - 
+        #      NumeroPedimento  : "00  00  0000  0000000"
+  
+  # Impuestos
+  Impuestos:
+    #TotalImpuestosRetenidos  : "2053.71"
+    # Bloque de datos que determina los impuestos retenidos, se repite por cada impuesto retenido global presente en el CFDi.
+    #Retenciones:
+    #  - 
+    #    Impuesto             : "ISR"                                 
+    #    Importe              : "2053.71"                             
+    #
+    #  - 
+    #    Impuesto             : "ISR"                                 
+    #    Importe              : "2053.71" 
+
+    TotalImpuestosTrasladados : "362254"
+    # Bloque de datos que determina los impuestos traslados, se repite por cada impuesto global presente en el CFDi.
+    Traslados:
+      - 
+        Impuesto             : "001"                               
+        TipoFactor           : "Tasa"
+        TasaOCuota           : "0.160000" 
+        Importe              : "362254"                           
+
+      #- 
+      #  Impuesto             : "IVA"                               
+      #  TipoFactor           : "TipoFactor0"
+      #  TasaOCuota           : "16.00" 
+      #  Importe              : "1000.00" 
+
+  #Complemento:
+
+  
+  #Addenda: 
+  
+
+ # Otros. Bloque informativo para especificar información extra que desee expresar en la representación impresa del comprobante. Datos que serán registrados en la Addenda.
+ # El símbolo - indica inicio de una nueva leyenda de información. Debe haber un espacio después del símbolo -
+
+  LeyendasImpresion:
+    - 
+      Atributo : "agradecimiento"                     
+      Valor    : "Gracias por el esfuerzo para terminar oportunamente el Proyecto"
+
+    - 
+      Atributo : "administrativo"    
+      Valor    : "Recuerda presentar los comprobantes de gastos de viaje dentro de los tres días siguientes a la terminación del mismo"

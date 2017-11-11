@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tdCFDI="http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI"
+    xmlns="http://www.diverza.com/ns/addenda/diverza/1"
+    targetNamespace="http://www.diverza.com/ns/addenda/diverza/1" attributeFormDefault="unqualified"
+    elementFormDefault="qualified">
+    <xs:element name="diverza">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="generales" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Nodo opcional para proporcionar información general que aplique al documento.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="tipoDocumento" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para indicar el nombre comercial del CFDI descrito en letra. Por ejemplo: Factura, Nota de Crédito, Recibo de Arrendamiento, etc.</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                    <xs:maxLength value="100"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="totalConLetra" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para indicar el importe total del CFDI descrito en letra.</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="observaciones" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para agregar cualquier información de texto que sea útil para el CFDI</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="numeroOrden">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para identificar el número de orden comercial relacionado con el documento</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="nombreTransportista" type="xs:string" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para especificar el nombre o identificador del servico de transporte de la mercancía que ampara el documento..</xs:documentation>
+                            </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="numeroEntrega" type="xs:string" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para identificar el número de la orden de entrega de la mercancía que ampara el documento.</xs:documentation>
+                            </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="terminosPago" type="xs:string" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para identificar los terminos de Pago del documento.</xs:documentation>
+                            </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="fechaEntrega" type="fecha" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para identificar la fecha de entrega de la mercancía que ampara el documento.</xs:documentation>
+                            </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="fechaTipoCambio" type="fecha">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para identificar la fecha del tipo de cambio aplicado en el atributo TipoCambio  del nodo Comprobante del CFDI cuando la Moneda corresponda a un valor diferente a Pesos Mexicanos.</xs:documentation>
+                            </xs:annotation>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="clavesDescripcion" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Nodo opcional para expresar las descripciones de los valores del Comprobante que tienen un catálogo oficial SAT relacionado.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="c_FormaPago" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para expresar la descripción de la clave del atributo FormaPago del Comprobante conforme al catálogo c_FormaPago. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="c_Moneda" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para expresar la descripción de la clave del atributo Moneda del Comprobante conforme al catálogo c_Moneda. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="c_TipoDeComprobante" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para expresar la descripción de la clave del atributo TipoDeComprobante del Comprobante conforme al catálogo c_TipoDeComprobante. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="c_MetodoPago" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para expresar la descripción de la clave del atributo MetodoPago del Comprobante conforme al catálogo c_MetodoPago. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="c_LugarExpedicion" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para expresar la Ciudad y Estado al que corresponda el Código Postal señalado en el atributo LugarExpedicion del Comprobante conforme al catálogo c_CodigoPostal. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="c_TipoRelacion" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para expresar la descripción  que corresponda a la clave del Tipo de Relación entre CFDIs señalado en el atributo TipoRelacion del nodo CfdiRelacionados del Comprobante conforme al catálogo c_TipoRelacion. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="c_RegimenFiscal" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para expresar la descripción  que corresponda a la clave del Régimen Fiscal del nodo Emisor del Comprobante conforme al catálogo c_RegimenFiscal. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="c_ResidenciaFiscal" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para expresar la descripción  que corresponda a la clave del País del atributo ResidenciaFiscal del nodo Receptor del Comprobante cuando este sea extranjero y conforme al catálogo c_Pais. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="c_UsoCFDI" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para expresar la descripción  que corresponda a la clave del Uso del CFDI del atributo UsoCFDI del nodo Receptor del Comprobante conforme al catálogo c_UsoCFDI. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="emisor" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Nodo opcional para proporcionar información adicional relacionada al emisor.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="datosContactoE" type="datos_Contacto" maxOccurs="1"
+                                minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>Nodo opcional para agregar información de contacto del emisor</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="domicilioFiscalE" type="ubicacion" maxOccurs="1"
+                                minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>Nodo opcional para agregar información del domicilo fiscal del emisor</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="sucursalE" maxOccurs="1" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>Nodo opcional para agregar información de la sucursal en la que fue expedido  el documento</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="domicilioSucursal" type="ubicacion"
+                                            maxOccurs="1" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>Elemento opcional para especificar la información del domicilio de la sucursal en la que fue expedido el documento</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element maxOccurs="1" minOccurs="0" name="datosContacto"
+                                            type="datos_Contacto">
+                                            <xs:annotation>
+                                                <xs:documentation>Elemento opcional para especificar datos de contacto de la sucursal en la que fue expedido el documento</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="alias">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para especificar el nombre o clave de la sucursal en la que fue expedido el documento</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:whiteSpace value="collapse"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="vendedor" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para indicar el nombre o clave del Agente de Ventas relacionado con el documento</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="numeroProveedor" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para colocar la clave o número de proveedor que el emisor tiene asignado por su cliente. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="tipoProveedor" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para colocar el tipo de proveedor que el emisor tiene asignado por su cliente. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="gln" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para colocar el número GLN del proveedor. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="receptor" maxOccurs="1" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Nodo opcional para agregar información relacionada al receptor del documento.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="datosContactoR" type="datos_Contacto" maxOccurs="1"
+                                minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>Elemento opcional para agregar datos de contacto del receptor. </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="domicilioFiscalR" type="ubicacion" maxOccurs="1"
+                                minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>Elemento opcional para especificar la información del domicilio del receptor. </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element maxOccurs="1" minOccurs="0" name="destino">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="domicilioDestinoR" type="ubicacion"
+                                            maxOccurs="unbounded" minOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>Elemento opcional para especificar información del domicilio en donde será entregada la mercancía que ampara el documento.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="numCliente">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional para colocar la clave o número de cliente asignado al receptor por parte del emisor del documento. </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:whiteSpace value="collapse"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="conceptos" maxOccurs="1" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="concepto">
+                                <xs:annotation>
+                                    <xs:documentation>Nodo de información para especificar información adicional a un concepto del Comprobante</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" minOccurs="0"
+                                            name="datosExtraC" type="extra">
+                                            <xs:annotation>
+                                                <xs:documentation>Elemento para determinar datos adicionales que no están contemplados en el esquema pero que se desean especificar en el Comprobante</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="indicador">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para definir un identificador básico que relacione la información de la Addenda con los nodos Concepto del Comprobante</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="identificador1">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para especificar un identificador especial útil al Concepto</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="identificador2">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para especificar otro identificador especial útil al Concepto</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="descripcionExtranjera">
+                                        <xs:annotation>
+                                            <xs:documentation>Valor opcional si se requeire agregar información descripriva del Concepto en un idioma diferente al español</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="valorUnitarioMonedaExtranjera"
+                                        type="importe">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para determinar el Valor Unitario en alguna moneada extranjera</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="importeMonedaExtranjera" type="importe">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para determinar el importe total del concepto en una moneda extranjera</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="mensaje">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para especificar cualquier mensaje de tipo comercial relacionado al Concepto</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="unidadMedida">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para determinar alguna unidad de medida adicional que se desee especificar en el Concepto</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="codigoEAN">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para especificar si se desea el código de barras EAN (European Article Number)</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="sku">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para especificar el 'Stock-keeping unit' o SKU registrado internamente por el negocio</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="nombreTransportistaC">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para proporcionar el nombre o clave del servicio de transporte usado para el traslado del atrículo definido en el Concepto</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="numeroEntregaC">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para determinar el número de registro originado en el momento de entrega del producto relacionado al Concepto facturado</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="fechaEntregaC" type="fecha">
+                                        <xs:annotation>
+                                            <xs:documentation>Atributo opcional para indicar la fecha de entrega del producto relacionado al concepto facturado</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="numeroConceptos" use="optional">
+                            <xs:annotation>
+                                <xs:documentation>Atributo opcional definido para especificar el número de líneas de concepto presentes en el documento.</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:integer">
+                                    <xs:minInclusive value="1"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" name="complemento">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="datosExtra"
+                                type="extra">
+                                <xs:annotation>
+                                    <xs:documentation>Nodo para incluir elementos de información que no está especificada en el esquema de la Addenda</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="version" use="required" fixed="1.1" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="ubicacion">
+        <xs:annotation>
+            <xs:documentation>Tipo definido para expresar domicilios o direcciones</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="codigoSitio" use="optional">
+            <xs:annotation>
+                <xs:documentation>Elemento opcional para especificar el código de sitio del domicilio.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0"/>
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="calle" use="optional">
+            <xs:annotation>
+                <xs:documentation>Este atributo opcional sirve para precisar la avenida, calle, camino o carretera donde se da la ubicación.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0"/>
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="numero" use="optional">
+            <xs:annotation>
+                <xs:documentation>Este atributo opcional sirve para expresar el número particular en donde se da la ubicación sobre una calle dada.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0"/>
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="colonia" use="optional">
+            <xs:annotation>
+                <xs:documentation>Este atributo opcional sirve para precisar la colonia en donde se da la ubicación cuando se desea ser más específico en casos de ubicaciones urbanas.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0"/>
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="ciudad" use="optional">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional que sirve para precisar la ciudad o población donde se da la ubicación.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0"/>
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="municipio" use="optional">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional que sirve para precisar el municipio o delegación (en el caso del Distrito Federal) en donde se da la ubicación.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0"/>
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="estado" use="optional">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional que sirve para precisar el estado o entidad federativa donde se da la ubicación.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0"/>
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="pais" use="optional">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional que sirve para precisar el país donde se da la ubicación.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="0"/>
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="codigoPostal" use="optional">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional que sirve para asentar el código postal en donde se da la ubicación.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="datos_Contacto">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato para determinar información de datos de contacto como teléfono, email y otros.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="telefono" use="optional">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional para especificar el teléfono de contacto.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:whiteSpace value="collapse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="emailComercial" use="optional" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional para especificar el email comerical que se quiera publicar a los clientes.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emailContacto" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional para especificar el email de contacto para notificaciones privadas.
+</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="web" use="optional" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional para especificar la URL del sitio Web.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="extra">
+        <xs:annotation>
+            <xs:documentation>
+                Tipo definido para determinar cualquier información útil que se requiera expresar en la versión impresa del Comprobante.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="indicador">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional para señalar un valor que sea útil para identificar el atributo extra</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="atributo" use="optional">
+            <xs:annotation>
+                <xs:documentation>Atributo opcional para especificar el nombre de un atributo adicional que se desee incluir en la Addenda</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valor">
+            <xs:annotation>
+                <xs:documentation>Dato opcional que especifica el valor del atributo determinado en el elemento extra</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="prefijo">
+            <xs:annotation>
+                <xs:documentation>Valor opcional que puede incorporarse como prefijo para una mejor identificación del elemento extra</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sufijo">
+            <xs:annotation>
+                <xs:documentation>Valor opcional que puede incorporarse como sufijo
+para una mejor identificación del elemento extra</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:simpleType name="fecha">
+        <xs:annotation>
+            <xs:documentation>
+                Tipo definido para la expresión de la fecha. Se expresa en la forma AAAA-MM-DD.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:whiteSpace value="collapse"/>
+            <xs:pattern value="((19|20)[0-9][0-9])-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="importe">
+        <xs:annotation>
+            <xs:documentation>
+                Tipo definido para expresar importes numéricos con fracción hasta seis decimales. El valor se redondea de acuerdo con el número de decimales que soporta la moneda. No se permiten valores negativos.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:pattern value="[0-9]{1,18}(.[0-9]{1,6})?"/>
+            <xs:whiteSpace value="collapse"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

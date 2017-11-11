@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Comprobante xmlns:catCFDI="http://www.sat.gob.mx/sitio_internet/cfd/catalogos"
+ xmlns="http://www.sat.gob.mx/cfd/3"
+ xmlns:tdCFDI="http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 file:/Users/osvaldosanchez/Documents/PROYECTOS/2017/SAT/CFDI%203.3/20Feb2017/cfdv33.xsd" Version="3.3" Serie="Serie1" Folio="Folio1" Fecha="2006-05-04T18:13:51.0Z" Sello="Sello1" FormaPago="01"
+     NoCertificado="00000000000000000000" Certificado="Certificado1" CondicionesDePago="CondicionesDePago1"
+     SubTotal="50.000000" Descuento="50.000000" Moneda="AED" TipoCambio="50.000000" Total="50.000000"
+     TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="00000" Confirmacion="00000">
+    <CfdiRelacionados TipoRelacion="01">
+        <CfdiRelacionado UUID="00000000-0000-0000-0000-000000000000"/>
+        <CfdiRelacionado UUID="00000000-0000-0000-0000-000000000000"/>
+    </CfdiRelacionados>
+    <Emisor Rfc="&amp;&amp;&amp;000101000" Nombre="Nombre1" RegimenFiscal="601"/>
+    <Receptor Rfc="&amp;&amp;&amp;000101000" Nombre="Nombre3" ResidenciaFiscal="AFG" NumRegIdTrib="NumRegIdTrib1"
+         UsoCFDI="G01"/>
+    <Conceptos>
+        <Concepto ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion1" Cantidad="50.000000" ClaveUnidad="C81"
+             Unidad="Unidad1" Descripcion="Descripcion1" ValorUnitario="50.000000" Importe="50.000000"
+             Descuento="50.000000">
+            <Impuestos>
+                <Traslados>
+                    <Traslado Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+                    <Traslado Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+                </Traslados>
+                <Retenciones>
+                    <Retencion Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="50.000000" Importe="50.000000"/>
+                    <Retencion Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="50.000000" Importe="50.000000"/>
+                </Retenciones>
+            </Impuestos>
+            <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            <CuentaPredial Numero="0"/>
+            <ComplementoConcepto>
+            </ComplementoConcepto>
+            <Parte ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion3" Cantidad="50.000000" Unidad="Unidad3"
+                 Descripcion="Descripcion3" ValorUnitario="50.000000" Importe="50.000000">
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            </Parte>
+            <Parte ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion5" Cantidad="50.000000" Unidad="Unidad5"
+                 Descripcion="Descripcion5" ValorUnitario="50.000000" Importe="50.000000">
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            </Parte>
+        </Concepto>
+        <Concepto ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion7" Cantidad="50.000000" ClaveUnidad="C81"
+             Unidad="Unidad7" Descripcion="Descripcion7" ValorUnitario="50.000000" Importe="50.000000"
+             Descuento="50.000000">
+            <Impuestos>
+                <Traslados>
+                    <Traslado Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+                    <Traslado Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+                </Traslados>
+                <Retenciones>
+                    <Retencion Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="50.000000" Importe="50.000000"/>
+                    <Retencion Base="50.000000" Impuesto="001" TipoFactor="Tasa" TasaOCuota="50.000000" Importe="50.000000"/>
+                </Retenciones>
+            </Impuestos>
+            <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            <CuentaPredial Numero="0"/>
+            <ComplementoConcepto>
+            </ComplementoConcepto>
+            <Parte ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion9" Cantidad="50.000000" Unidad="Unidad9"
+                 Descripcion="Descripcion9" ValorUnitario="50.000000" Importe="50.000000">
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            </Parte>
+            <Parte ClaveProdServ="01010101" NoIdentificacion="NoIdentificacion11" Cantidad="50.000000" Unidad="Unidad11"
+                 Descripcion="Descripcion11" ValorUnitario="50.000000" Importe="50.000000">
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+                <InformacionAduanera NumeroPedimento="00  00  0000  0000000"/>
+            </Parte>
+        </Concepto>
+    </Conceptos>
+    <Impuestos TotalImpuestosRetenidos="50.000000" TotalImpuestosTrasladados="50.000000">
+        <Retenciones>
+            <Retencion Impuesto="001" Importe="50.000000"/>
+            <Retencion Impuesto="001" Importe="50.000000"/>
+        </Retenciones>
+        <Traslados>
+            <Traslado Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+            <Traslado Impuesto="001" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="50.000000"/>
+        </Traslados>
+    </Impuestos>
+    <Complemento>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <ComercioExterior xmlns="http://www.sat.gob.mx/ComercioExterior11"
+            xmlns:catCFDI="http://www.sat.gob.mx/cfd/catalogos/catalogos"
+            xmlns:tdCFDI="http://www.sat.gob.mx/cfd/tipoDatos/tdCFDI"
+            xmlns:catComExt="http://www.sat.gob.mx/cfd/ComExt"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.sat.gob.mx/ComercioExterior11 file:/Users/osvaldosanchez/Documents/PROYECTOS/2016/SAT/ComplementoComercioExterior/Version1.1/ComercioExterior11.xsd" Version="1.1" MotivoTraslado="MotivoTraslado1" TipoOperacion="TipoOperacion1" ClaveDePedimento="ClaveDePedimento1"
+            CertificadoOrigen="0" NumCertificadoOrigen="NumCertificadoOrigen1" NumeroExportadorConfiable="NumeroExportadorConfiable1"
+            Incoterm="Incoterm1" Subdivision="0" Observaciones="Observaciones1" TipoCambioUSD="TipoCambioUSD1"
+            TotalUSD="TotalUSD1">
+            <Emisor Curp="Curp1">
+                <Domicilio Calle="Calle1" NumeroExterior="NumeroExterior1" NumeroInterior="NumeroInterior1" Colonia="Colonia1"
+                    Localidad="Localidad1" Referencia="Referencia1" Municipio="Municipio1" Estado="Estado1"
+                    Pais="Pais1" CodigoPostal="CodigoPostal1"/>
+            </Emisor>
+            <Propietario NumRegIdTrib="NumRegIdTrib1" ResidenciaFiscal="ResidenciaFiscal1"/>
+            <Propietario NumRegIdTrib="NumRegIdTrib3" ResidenciaFiscal="ResidenciaFiscal3"/>
+            <Receptor NumRegIdTrib="NumRegIdTrib5">
+                <Domicilio Calle="Calle3" NumeroExterior="NumeroExterior3" NumeroInterior="NumeroInterior3" Colonia="Colonia3"
+                    Localidad="Localidad3" Referencia="Referencia3" Municipio="Municipio3" Estado="Estado3"
+                    Pais="Pais3" CodigoPostal="CodigoPostal"/>
+            </Receptor>
+            <Destinatario NumRegIdTrib="NumRegIdTrib7" Nombre="Nombre1">
+                <Domicilio Calle="Calle5" NumeroExterior="NumeroExterior5" NumeroInterior="NumeroInterior5" Colonia="Colonia5"
+                    Localidad="Localidad5" Referencia="Referencia5" Municipio="Municipio5" Estado="Estado5"
+                    Pais="Pais5" CodigoPostal="CodigoPostal"/>
+                <Domicilio Calle="Calle7" NumeroExterior="NumeroExterior7" NumeroInterior="NumeroInterior7" Colonia="Colonia7"
+                    Localidad="Localidad7" Referencia="Referencia7" Municipio="Municipio7" Estado="Estado7"
+                    Pais="Pais7" CodigoPostal="CodigoPostal"/>
+            </Destinatario>
+            <Destinatario NumRegIdTrib="NumRegIdTrib9" Nombre="Nombre3">
+                <Domicilio Calle="Calle9" NumeroExterior="NumeroExterior9" NumeroInterior="NumeroInterior9" Colonia="Colonia9"
+                    Localidad="Localidad9" Referencia="Referencia9" Municipio="Municipio9" Estado="Estado9"
+                    Pais="Pais9" CodigoPostal="CodigoPostal"/>
+                <Domicilio Calle="Calle11" NumeroExterior="NumeroExterior11" NumeroInterior="NumeroInterior11" Colonia="Colonia11"
+                    Localidad="Localidad11" Referencia="Referencia11" Municipio="Municipio11" Estado="Estado11"
+                    Pais="Pais11" CodigoPostal="CodigoPostal"/>
+            </Destinatario>
+            <Mercancias>
+                <Mercancia NoIdentificacion="NoIdentificacion1" FraccionArancelaria="FraccionArancelaria1" CantidadAduana="50.00"
+                    UnidadAduana="UnidadAduana1" ValorUnitarioAduana="50" ValorDolares="50">
+                    <DescripcionesEspecificas Marca="Marca1" Modelo="Modelo1" SubModelo="SubModelo1" NumeroSerie="NumeroSerie1"/>
+                    <DescripcionesEspecificas Marca="Marca3" Modelo="Modelo3" SubModelo="SubModelo3" NumeroSerie="NumeroSerie3"/>
+                </Mercancia>
+                <Mercancia NoIdentificacion="NoIdentificacion3" FraccionArancelaria="FraccionArancelaria3" CantidadAduana="50.00"
+                    UnidadAduana="UnidadAduana3" ValorUnitarioAduana="50" ValorDolares="50">
+                    <DescripcionesEspecificas Marca="Marca5" Modelo="Modelo5" SubModelo="SubModelo5" NumeroSerie="NumeroSerie5"/>
+                    <DescripcionesEspecificas Marca="Marca7" Modelo="Modelo7" SubModelo="SubModelo7" NumeroSerie="NumeroSerie7"/>
+                </Mercancia>
+            </Mercancias>
+        </ComercioExterior>
+    </Complemento>
+    <Addenda>
+        <anyElement/>
+        <anyElement/>
+    </Addenda>
+</Comprobante>

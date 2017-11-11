@@ -1,0 +1,493 @@
+# Formato del archivo de texto para solicitar la generación de un comprobante fiscal digital por internet versión 3.3.
+# Este formato es compatible con YAML (http://www.yaml.org/spec/1.2/spec.html).
+# Puede generar el archivo manualmente o utilizar algún módulo displonible en: http://en.wikipedia.org/wiki/YAML#Bindings.
+# El archivo DEBE estar códificado en UTF-8 y sólo debe usar espacios para la identación (dos espacios al menos en cada identación), no tabs.
+# La identación es importante y determina la relación entre los elementos.
+# Los comentarios empiezan con un signo de # y debe existir un espacio después del signo #.
+# Las lineas vacias son ignoradas.
+--- !diverza.com/v2.0   # Todo documento debe empezar con esta marca y la indicación de la versión
+
+# Datos generales
+# Debe haber al menos un espacio después de los dos puntos.
+
+Comprobante: 
+
+  NombreCfdi                 : "FAC20170501001"                        # Dato opcional para indicar que nombre se le dara al archivo de salida XML y PDF del comprobante
+  RefId                      : "20170501001"                           # Atributo opcional para expresar un identificador interno que sirva de referencia para relacionar internamente el CFDi con los sistemas del usuario. Tiene una longitud máxima de 32 caracteres de tipo:  a-z,A-Z,0-9.
+  Version                    : "3.3"
+  Serie                      : "Serie1"
+  Folio                      : "Folio1"
+  Fecha                      : "2006-05-04T18:13:51.0Z"
+  Sello                      : "Sello1"
+  FormaPago                  : "01"
+  NoCertificado              : "00000000000000000000"
+  Certificado                : "Certificado1"
+  CondicionesDePago          : "CondicionesDePago1"
+  SubTotal                   : "50.000000"
+  Descuento                  : "50.000000"
+  Moneda                     : "AED"
+  TipoCambio                 : "50.000000"
+  Total                      : "50.000000"
+  TipoDeComprobante          : "I"
+  MetodoPago                 : "PUE"
+  LugarExpedicion            : "00000"
+  Confirmacion               : "00000"
+         
+  CfdiRelacionados:         
+    TipoRelacion             : "01" 
+    CfdiRelacionado:        
+      - 
+        UUID                 : "00000000-0000-0000-0000-000000000000"
+      - 
+        UUID                 : "00000000-0000-0000-0000-000000000000"
+
+  # Nodo requerido para expresar la información del contribuyente emisor del comprobante.           
+  Emisor:         
+    Rfc                     : "&&&000101000"
+    Nombre                  : "Nombre1"
+    RegimenFiscal           : "601"
+   
+  # Nodo requerido para precisar la información del contribuyente receptor del comprobante.        
+  Receptor:         
+    Rfc                     : "&&&000101000"
+    Nombre                  : "Nombre3"
+    ResidenciaFiscal        : "AFG"
+    NumRegIdTrib            : "NumRegIdTrib1"
+    UsoCFDI                 : "G01"
+  
+  # Nodo requerido para listar los conceptos cubiertos por el comprobante.
+  Conceptos: 
+
+    # Nodo requerido para registrar la información detallada de un bien o servicio amparado en el comprobante.
+    - 
+      Concepto:
+      ClaveProdServ          : "ClaveProdServ0" 
+      NoIdentificacion       : "NoIdentificacion0" 
+      Cantidad               : "50.000000" 
+      ClaveUnidad            : "ClaveUnidad0"
+      Unidad                 : "Unidad0" 
+      Descripcion            : "Descripcion0" 
+      ValorUnitario          : "ValorUnitario0" 
+      Importe                : "Importe0"
+      Descuento              : "Descuento1"
+
+      # Nodo opcional para capturar los impuestos aplicables al presente concepto. Cuando un concepto no registra un impuesto, implica que no es objeto del mismo.
+      # Nodo opcional para asentar los impuestos trasladados aplicables al presente concepto.
+      Traslados:
+        - 
+          TrasladoBase        : "Base0" 
+          TrasladoImpuesto    : "Impuesto0" 
+          TrasladoTipoFactor  : "TipoFactor0" 
+          TrasladoTasaOCuota  : "TasaOCuota0" 
+          TrasladoImporte     : "Importe1"
+
+        - 
+          TrasladoBase        : "Base0" 
+          TrasladoImpuesto    : "Impuesto0" 
+          TrasladoTipoFactor  : "TipoFactor0" 
+          TrasladoTasaOCuota  : "TasaOCuota0" 
+          TrasladoImporte     : "Importe1"
+
+      # Nodo opcional para asentar los impuestos retenidos aplicables al presente concepto.    
+      Retenciones:
+        - 
+          RetencionBase       : "Base0" 
+          RetencionImpuesto   : "Impuesto0" 
+          RetencionTipoFactor : "TipoFactor0" 
+          RetencionTasaOCuota : "TasaOCuota0" 
+          RetencionImporte    : "Importe1"
+
+        - 
+          RetencionBase       : "Base0" 
+          RetencionImpuesto   : "Impuesto0" 
+          RetencionTipoFactor : "TipoFactor0" 
+          RetencionTasaOCuota : "TasaOCuota0" 
+          RetencionImporte    : "Importe1"
+
+      # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.    
+      InformacionAduanera:
+        - 
+          NumeroPedimento     : "00  00  0000  0000000"
+        - 
+          NumeroPedimento     : "00  00  0000  0000000"
+
+      # Nodo opcional para asentar el número de cuenta predial con el que fue registrado el inmueble, en el sistema catastral de la entidad federativa de que trate, o bien para incorporar los datos de identificación del certificado de participación inmobiliaria no amortizable.
+      CuentaPredialNumero    : "0"
+      
+      ComplementoConcepto:
+        
+      Parte:
+
+        - 
+          ClaveProdServ        : "ClaveProdServ1" 
+          NoIdentificacion     : "NoIdentificacion1" 
+          Cantidad             : "50.000000" 
+          Unidad               : "Unidad1"
+          Descripcion          : "Descripcion1" 
+          ValorUnitario        : "ValorUnitario1" 
+          Importe              : "Importe5"
+
+          # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios. 
+          InformacionAduanera:
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+
+        - 
+          ClaveProdServ        : "ClaveProdServ1" 
+          NoIdentificacion     : "NoIdentificacion1" 
+          Cantidad             : "50.000000" 
+          Unidad               : "Unidad1"
+          Descripcion          : "Descripcion1" 
+          ValorUnitario        : "ValorUnitario1" 
+          Importe              : "Importe5"
+
+          # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.
+          InformacionAduanera:
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+
+    - 
+      Concepto:
+      ClaveProdServ          : "ClaveProdServ0" 
+      NoIdentificacion       : "NoIdentificacion0" 
+      Cantidad               : "50.000000" 
+      ClaveUnidad            : "ClaveUnidad0"
+      Unidad                 : "Unidad0" 
+      Descripcion            : "Descripcion0" 
+      ValorUnitario          : "ValorUnitario0" 
+      Importe                : "Importe0"
+      Descuento              : "Descuento1"
+      
+      # Nodo opcional para capturar los impuestos aplicables al presente concepto. Cuando un concepto no registra un impuesto, implica que no es objeto del mismo.
+      # Nodo opcional para asentar los impuestos trasladados aplicables al presente concepto.
+      Traslados:
+        - 
+          TrasladoBase        : "Base0" 
+          TrasladoImpuesto    : "Impuesto0" 
+          TrasladoTipoFactor  : "TipoFactor0" 
+          TrasladoTasaOCuota  : "TasaOCuota0" 
+          TrasladoImporte     : "Importe1"
+
+        - 
+          TrasladoBase        : "Base0" 
+          TrasladoImpuesto    : "Impuesto0" 
+          TrasladoTipoFactor  : "TipoFactor0" 
+          TrasladoTasaOCuota  : "TasaOCuota0" 
+          TrasladoImporte     : "Importe1"
+
+      # Nodo opcional para asentar los impuestos retenidos aplicables al presente concepto.     
+      Retenciones:
+        - 
+          RetencionBase       : "Base0" 
+          RetencionImpuesto   : "Impuesto0" 
+          RetencionTipoFactor : "TipoFactor0" 
+          RetencionTasaOCuota : "TasaOCuota0" 
+          RetencionImporte    : "Importe1"
+
+        - 
+          RetencionBase       : "Base0" 
+          RetencionImpuesto   : "Impuesto0" 
+          RetencionTipoFactor : "TipoFactor0" 
+          RetencionTasaOCuota : "TasaOCuota0" 
+          RetencionImporte    : "Importe1"
+
+      # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.    
+      InformacionAduanera:
+        - 
+          NumeroPedimento     : "00  00  0000  0000000"
+        - 
+          NumeroPedimento     : "00  00  0000  0000000"
+
+      # Nodo opcional para asentar el número de cuenta predial con el que fue registrado el inmueble, en el sistema catastral de la entidad federativa de que trate, o bien para incorporar los datos de identificación del certificado de participación inmobiliaria no amortizable.
+      CuentaPredialNumero    : "0"
+
+      # Nodo opcional donde se incluyen los nodos complementarios de extensión al concepto definidos por el SAT, de acuerdo con las disposiciones particulares para un sector o actividad específic
+      ComplementoConcepto:
+      
+      # Nodo opcional para expresar las partes o componentes que integran la totalidad del concepto expresado en el comprobante fiscal digital por Internet.
+      Parte:
+
+        - 
+          ClaveProdServ        : "ClaveProdServ1" 
+          NoIdentificacion     : "NoIdentificacion1" 
+          Cantidad             : "50.000000" 
+          Unidad               : "Unidad1"
+          Descripcion          : "Descripcion1" 
+          ValorUnitario        : "ValorUnitario1" 
+          Importe              : "Importe5"
+
+          # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.
+          InformacionAduanera:
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+
+        - 
+          ClaveProdServ        : "ClaveProdServ1" 
+          NoIdentificacion     : "NoIdentificacion1" 
+          Cantidad             : "50.000000" 
+          Unidad               : "Unidad1"
+          Descripcion          : "Descripcion1" 
+          ValorUnitario        : "ValorUnitario1" 
+          Importe              : "Importe5"
+
+          # Nodo opcional para introducir la información aduanera aplicable cuando se trate de ventas de primera mano de mercancías importadas o se trate de operaciones de comercio exterior con bienes o servicios.
+          InformacionAduanera:
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+            - 
+              NumeroPedimento  : "00  00  0000  0000000"
+  
+  # Impuestos
+  Impuestos:
+    TotalImpuestosRetenidos  : "2053.71"
+    # Bloque de datos que determina los impuestos retenidos, se repite por cada impuesto retenido global presente en el CFDi.
+    Retenciones:
+      - 
+        Impuesto             : "ISR"                                 
+        Importe              : "2053.71"                             
+
+      - 
+        Impuesto             : "ISR"                                 
+        Importe              : "2053.71" 
+
+    TotalImpuestosTrasladados : "0.00"
+    # Bloque de datos que determina los impuestos traslados, se repite por cada impuesto global presente en el CFDi.
+    Traslados:
+      - 
+        Impuesto             : "IVA"                               
+        TipoFactor           : "TipoFactor0"
+        TasaOCuota           : "16.00" 
+        Importe              : "1000.00"                           
+
+      - 
+        Impuesto             : "IVA"                               
+        TipoFactor           : "TipoFactor0"
+        TasaOCuota           : "16.00" 
+        Importe              : "1000.00" 
+
+  Complemento:
+
+    # Datos del complemento de Pagos 1.0
+    Pagos: 
+
+      Version                 : "1.0"
+      Pago: 
+        - 
+          FechaPago             : "2006-05-04T18:13:51.0Z"
+          FormaDePagoP          : "01"
+          MonedaP               : "AED"
+          TipoCambioP           : "50.000000"
+          Monto                 : "50.000000"
+          NumOperacion          : "NumOperacion1"
+          RfcEmisorCtaOrd       : "000000000000"
+          NomBancoOrdExt        : "NomBancoOrdExt1"
+          CtaOrdenante          : "0000000000"
+          RfcEmisorCtaBen       : "&&&000101000"
+          CtaBeneficiario       : "0000000000"
+          TipoCadPago           : "TipoCadPago1"
+          CertPago              : "ZGVmYXVsdA=="
+          CadPago               : "CadPago1"
+          SelloPago             : "ZGVmYXVsdA=="
+   
+          DoctoRelacionado: 
+            - 
+              IdDocumento         : "00000000-0000-0000-0000-000000000000"
+              Serie               : "Serie0"
+              Folio               : "Folio0"
+              MonedaDR            : "AED"
+              TipoCambioDR        : "0.000001"
+              MetodoDePagoDR      : "PUE"
+              NumParcialidad      : "0"
+              ImpSaldoAnt         : "50.000000"
+              ImpPagado           : "50.000000"
+              ImpSaldoInsoluto    : "50.000000"
+   
+            - 
+              IdDocumento         : "00000000-0000-0000-0000-000000000000"
+              Serie               : "Serie1"
+              Folio               : "Folio1"
+              MonedaDR            : "AED"
+              TipoCambioDR        : "0.000001"
+              MetodoDePagoDR      : "PUE"
+              NumParcialidad      : "0"
+              ImpSaldoAnt         : "50.000000"
+              ImpPagado           : "50.000000"
+              ImpSaldoInsoluto    : "50.000000"
+       
+          Impuestos: 
+            Retenciones: 
+              Retencion: 
+                - 
+                  Impuesto         : "001"
+                  Importe          : "50.000000"
+       
+                - 
+                  Impuesto         : "001"
+                  Importe          : "50.000000"
+       
+            Traslados: 
+              Traslado: 
+                - 
+                  Impuesto         : "001"
+                  TipoFactor       : "Tasa"
+                  TasaOCuota       : "0.000000"
+                  Importe          : "50.000000"
+       
+                - 
+                  Impuesto         : "001"
+                  TipoFactor       : "Tasa"
+                  TasaOCuota       : "0.000000"
+                  Importe          : "50.000000"
+       
+            TotalImpuestosRetenidos  : "50.000000"
+            TotalImpuestosTrasladados: "50.000000"
+          
+
+            Retenciones: 
+              Retencion: 
+                -
+                  Impuesto         : "001"
+                  Importe          : "50.000000"
+       
+                -
+                  Impuesto         : "001"
+                  Importe          : "50.000000"
+       
+            Traslados: 
+              Traslado: 
+                - 
+                  Impuesto         : "001"
+                  TipoFactor       : "Tasa"
+                  TasaOCuota       : "0.000000"
+                  Importe          : "50.000000"
+       
+                - 
+                  Impuesto         : "001"
+                  TipoFactor       : "Tasa"
+                  TasaOCuota       : "0.000000"
+                  Importe          : "50.000000"
+       
+            TotalImpuestosRetenidos  : "50.000000"
+            TotalImpuestosTrasladados: "50.000000"
+    
+
+        - 
+          FechaPago             : "2006-05-04T18:13:51.0Z"
+          FormaDePagoP          : "01"
+          MonedaP               : "AED"
+          TipoCambioP           : "50.000000"
+          Monto                 : "50.000000"
+          NumOperacion          : "NumOperacion1"
+          RfcEmisorCtaOrd       : "000000000000"
+          NomBancoOrdExt        : "NomBancoOrdExt1"
+          CtaOrdenante          : "0000000000"
+          RfcEmisorCtaBen       : "&&&000101000"
+          CtaBeneficiario       : "0000000000"
+          TipoCadPago           : "TipoCadPago1"
+          CertPago              : "ZGVmYXVsdA=="
+          CadPago               : "CadPago1"
+          SelloPago             : "ZGVmYXVsdA=="
+   
+          DoctoRelacionado: 
+            - 
+              IdDocumento         : "00000000-0000-0000-0000-000000000000"
+              Serie               : "Serie0"
+              Folio               : "Folio0"
+              MonedaDR            : "AED"
+              TipoCambioDR        : "0.000001"
+              MetodoDePagoDR      : "PUE"
+              NumParcialidad      : "0"
+              ImpSaldoAnt         : "50.000000"
+              ImpPagado           : "50.000000"
+              ImpSaldoInsoluto    : "50.000000"
+   
+            - 
+              IdDocumento         : "00000000-0000-0000-0000-000000000000"
+              Serie               : "Serie1"
+              Folio               : "Folio1"
+              MonedaDR            : "AED"
+              TipoCambioDR        : "0.000001"
+              MetodoDePagoDR      : "PUE"
+              NumParcialidad      : "0"
+              ImpSaldoAnt         : "50.000000"
+              ImpPagado           : "50.000000"
+              ImpSaldoInsoluto    : "50.000000"
+       
+          Impuestos: 
+            Retenciones: 
+              Retencion: 
+                - 
+                  Impuesto         : "001"
+                  Importe          : "50.000000"
+         
+                - 
+                  Impuesto         : "001"
+                  Importe          : "50.000000"
+       
+            Traslados: 
+              Traslado: 
+                - 
+                  Impuesto         : "001"
+                  TipoFactor       : "Tasa"
+                  TasaOCuota       : "0.000000"
+                  Importe          : "50.000000"
+       
+                - 
+                  Impuesto         : "001"
+                  TipoFactor       : "Tasa"
+                  TasaOCuota       : "0.000000"
+                  Importe          : "50.000000"
+       
+            TotalImpuestosRetenidos  : "50.000000"
+            TotalImpuestosTrasladados: "50.000000"
+          
+
+            Retenciones: 
+              Retencion: 
+                - 
+                  Impuesto         : "001"
+                  Importe          : "50.000000"
+         
+                - 
+                  Impuesto         : "001"
+                  Importe          : "50.000000"
+       
+            Traslados: 
+              Traslado: 
+                - 
+                  Impuesto         : "001"
+                  TipoFactor       : "Tasa"
+                  TasaOCuota       : "0.000000"
+                  Importe          : "50.000000"
+       
+                - 
+                  Impuesto         : "001"
+                  TipoFactor       : "Tasa"
+                  TasaOCuota       : "0.000000"
+                  Importe          : "50.000000"
+       
+            TotalImpuestosRetenidos  : "50.000000"
+            TotalImpuestosTrasladados: "50.000000"
+    
+ 
+  Addenda:
+
+ # Otros. Bloque informativo para especificar información extra que desee expresar en la representación impresa del comprobante. Datos que serán registrados en la Addenda.
+ # El símbolo - indica inicio de una nueva leyenda de información. Debe haber un espacio después del símbolo -
+
+  LeyendasImpresion:
+    - 
+      Atributo : "agradecimiento"                                                            # Atributo opcional para expresar el nombre de una leyenda especial.
+      Valor    : "Gracias por el esfuerzo para terminar oportunamente el Proyecto"           # Atributo opcional para expresar el valor de una leyenda espacial breve.
+
+    - 
+      Atributo : "administrativo"                                                            # Atributo opcional para expresar el nombre de una leyenda especial.
+      Valor    : "Recuerda presentar los comprobantes de gastos de viaje dentro de los tres días siguientes a la terminación del mismo"             # Atributo opcional para expresar el valor de una leyenda espacial breve.
+
+

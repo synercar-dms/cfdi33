@@ -1,0 +1,205 @@
+Diverza: 
+  Version: "1.1"
+
+  # Nodo opcional para proporcionar información general que aplique al documento.
+  Generales: 
+    TipoDocumento: "tipoDocumento1"
+    TotalConLetra: "totalConLetra1"
+    Observaciones: "observaciones1"
+    NumeroOrden: "numeroOrden1"
+    NombreTransportista: "nombreTransportista1"
+    NumeroEntrega: "numeroEntrega1"
+    TerminosPago: "terminosPago1"
+    FechaEntrega: "2006-05-04"
+    FechaTipoCambio: "2006-05-04"
+
+  # Nodo opcional para expresar las descripciones de los valores del Comprobante que tienen un catálogo oficial SAT relacionado.  
+  ClavesDescripcion: 
+    C_FormaPago: "c_FormaPago1"
+    C_Moneda: "c_Moneda1"
+    C_TipoDeComprobante: "c_TipoDeComprobante1"
+    C_MetodoPago: "c_MetodoPago1"
+    C_LugarExpedicion: "c_LugarExpedicion1"
+    C_TipoRelacion: "c_TipoRelacion1"
+    C_RegimenFiscal: "c_RegimenFiscal1"
+    C_ResidenciaFiscal: "c_ResidenciaFiscal1"
+    C_UsoCFDI: "c_UsoCFDI1"
+
+  # Nodo opcional para proporcionar información adicional relacionada al emisor.  
+  Emisor: 
+    Vendedor: "vendedor1"
+    BumeroProveedor: "numeroProveedor1"
+    TipoProveedor: "tipoProveedor1"
+    Gln: "gln1"
+    
+    # Nodo opcional para agregar información de contacto del emisor
+    DatosContactoE: 
+      Telefono: "telefono1"
+      EmailComercial: "emailComercial1"
+      EmailContacto: "emailContacto1"
+      Web: "web1"
+
+    # Nodo opcional para agregar información del domicilo fiscal del emisor
+    DomicilioFiscalE: 
+      CodigoSitio: "codigoSitio1"
+      Calle: "calle1"
+      Numero: "numero1"
+      Colonia: "colonia1"
+      Ciudad: "ciudad1"
+      Municipio: "municipio1"
+      Estado: "estado1"
+      Pais: "pais1"
+      CodigoPostal: "codigoPostal1"
+    
+    # Nodo opcional para agregar información de la sucursal en la que fue expedido  el documento
+    SucursalE: 
+      Alias: "alias1"                      # Atributo opcional para especificar el nombre o clave de la sucursal en la que fue expedido el documento
+
+      # Elemento opcional para especificar la información del domicilio de la sucursal en la que fue expedido el documento
+      DomicilioSucursal: 
+        CodigoSitio: "codigoSitio3"
+        Calle: "calle3"
+        Numero: "numero3"
+        Colonia: "colonia3"
+        Ciudad: "ciudad3"
+        Municipio: "municipio3"
+        Estado: "estado3"
+        Pais: "pais3"
+        CodigoPostal: "codigoPostal3"
+
+      # Elemento opcional para especificar datos de contacto de la sucursal en la que fue expedido el documento  
+      DatosContacto: 
+        Telefono: "telefono3"
+        EmailComercial: "emailComercial3"
+        EmailContacto: "emailContacto3"
+        Web: "web3"
+
+  # Nodo opcional para agregar información relacionada al receptor del documento.      
+  Receptor: 
+
+    # Elemento opcional para agregar datos de contacto del receptor. 
+    DatosContactoR: 
+      Telefono: "telefono5"
+      EmailComercial: "emailComercial5"
+      EmailContacto: "emailContacto5"
+      Web: "web5"
+
+    # Elemento opcional para especificar la información del domicilio del receptor. 
+    DomicilioFiscalR: 
+      CodigoSitio: "codigoSitio5"
+      Calle: "calle5"
+      Numero: "numero5"
+      Colonia: "colonia5"
+      Ciudad: "ciudad5"
+      Municipio: "municipio5"
+      Estado: "estado5"
+      Pais: "pais5"
+      CodigoPostal: "codigoPostal5"
+
+    Destino: 
+      NumCliente: "numCliente1"
+
+      # Elemento opcional para especificar información del domicilio en donde será entregada la mercancía que ampara el documento.
+      DomicilioDestinoR: 
+        - 
+          CodigoSitio: "codigoSitio7"
+          Calle: "calle7"
+          Numero: "numero7"
+          Colonia: "colonia7"
+          Ciudad: "ciudad7"
+          Municipio: "municipio7"
+          Estado: "estado7"
+          Pais: "pais7"
+          CodigoPostal: "codigoPostal7"
+        - 
+          CodigoSitio: "codigoSitio7"
+          Calle: "calle7"
+          Numero: "numero7"
+          Colonia: "colonia7"
+          Ciudad: "ciudad7"
+          Municipio: "municipio7"
+          Estado: "estado7"
+          Pais: "pais7"
+          CodigoPostal: "codigoPostal7"
+
+  Conceptos: 
+   NumeroConceptos: "50"
+
+   # Nodo de información para especificar información adicional a un concepto del Comprobante  
+   Concepto: 
+     - 
+       Indicador: "indicador1"
+       Identificador1: "identificador11"
+       Identificador2: "identificador21"
+       DescripcionExtranjera: "descripcionExtranjera1"
+       ValorUnitarioMonedaExtranjera: "0"
+       ImporteMonedaExtranjera: "0"
+       Mensaje: "mensaje1"
+       UnidadMedida: "unidadMedida1"
+       CodigoEAN: "codigoEAN1"
+       Sku: "sku1"
+       NombreTransportistaC: "nombreTransportistaC1"
+       NumeroEntregaC: "numeroEntregaC1"
+       FechaEntregaC: "2006-05-04"
+
+       # Elemento para determinar datos adicionales que no están contemplados en el esquema pero que se desean especificar en el Comprobante
+       DatosExtraC: 
+         - 
+           Indicador: "indicador3"
+           Atributo: "atributo1"
+           Valor: "valor1"
+           Prefijo: "prefijo1"
+           Sufijo: "sufijo1"
+         - 
+           Indicador: "indicador5"
+           Atributo: "atributo3"
+           Valor: "valor3"
+           Prefijo: "prefijo3"
+           Sufijo: "sufijo3"
+
+     - 
+       Indicador: "indicador1"
+       Identificador1: "identificador11"
+       Identificador2: "identificador21"
+       DescripcionExtranjera: "descripcionExtranjera1"
+       ValorUnitarioMonedaExtranjera: "0"
+       ImporteMonedaExtranjera: "0"
+       Mensaje: "mensaje1"
+       UnidadMedida: "unidadMedida1"
+       CodigoEAN: "codigoEAN1"
+       Sku: "sku1"
+       NombreTransportistaC: "nombreTransportistaC1"
+       NumeroEntregaC: "numeroEntregaC1"
+       FechaEntregaC: "2006-05-04"
+
+       # Elemento para determinar datos adicionales que no están contemplados en el esquema pero que se desean especificar en el Comprobante
+       DatosExtraC: 
+         - 
+           Indicador: "indicador3"
+           Atributo: "atributo1"
+           Valor: "valor1"
+           Prefijo: "prefijo1"
+           Sufijo: "sufijo1"
+         - 
+           Indicador: "indicador5"
+           Atributo: "atributo3"
+           Valor: "valor3"
+           Prefijo: "prefijo3"
+           Sufijo: "sufijo3"
+
+  Complemento:
+
+    # Nodo para incluir elementos de información que no está especificada en el esquema de la Addenda 
+    DatosExtra: 
+      - 
+        Indicador: "indicador13"
+        Atributo: "atributo9"
+        Valor: "valor9"
+        Prefijo: "prefijo9"
+        Sufijo: "sufijo9"
+      - 
+        Indicador: "indicador15"
+        Atributo: "atributo11"
+        Valor: "valor11"
+        Prefijo: "prefijo11"
+        Sufijo: "sufijo11" 
